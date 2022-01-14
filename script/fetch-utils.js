@@ -87,6 +87,7 @@ export const fetchSingleRecipe = async(id) => {
         .select()
         .match({ id })
         .single();
+    console.log(response);
 
     return checkError(response);
 };
@@ -133,6 +134,14 @@ export const decrementUserRating = async() => {
         .match({ user_id: user.user_id });
 
     return checkError(response);
+};
+
+export const createRecipe = async(recipe) => {
+    const response = await client
+        .from('recipes')
+        .insert(
+            recipe
+        );
 };
 
 
