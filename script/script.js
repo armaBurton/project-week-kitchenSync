@@ -1,5 +1,7 @@
 import { 
+    checkAuth,
     fetchAllLists,
+    getUser,
     redirectIfLoggedIn, 
     signInUser, 
     signupUser,
@@ -13,28 +15,27 @@ const signUpForm = document.getElementById('sign-up');
 const signUpEmail = document.getElementById('sign-up-email');
 const signUpPassword = document.getElementById('sign-up-password');
 
-// redirectIfLoggedIn();
+redirectIfLoggedIn();
 
-// signUpForm.addEventListener('submit', async(event)=>{
-//     event.preventDefault();
-//     const user = await signupUser(signUpEmail.value, signUpPassword.value);
+signUpForm.addEventListener('submit', async(event)=>{
+    event.preventDefault();
+    const user = await signupUser(signUpEmail.value, signUpPassword.value);
 
-//     if (user){
-//         redirectIfLoggedIn();
-//     } else {
-//         console.error(user);
-//     }
-// });
+    // if (user){
+    //     redirectIfLoggedIn();
+    // } else {
+    //     console.error(user);
+    // }
+});
 
-// signInForm.addEventListener('submit', async(event)=>{
-//     event.preventDefault();
-//     const user = await signInUser(signInEmail.value, signInPassword.value);
+signInForm.addEventListener('submit', async(event)=>{
+    event.preventDefault();
+    const user = await signInUser(signInEmail.value, signInPassword.value);
 
-//     if (user){
-//         redirectIfLoggedIn();
-//     } else {
-//         console.error(user);
-//     }
-// });
+    // if (user){
+    //     redirectIfLoggedIn();
+    // } else {
+    //     console.error(user);
+    // }
+});
 
-fetchAllLists();

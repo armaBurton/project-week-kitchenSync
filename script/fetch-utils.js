@@ -6,23 +6,31 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export const getUser = () => {
     const user = client.auth.user();
+    console.log(user);
     return user;
 };
 
 export async function checkAuth() {
     const user = await getUser();
-
-    if (!user) location.replace('../landing'); 
+    if (!user) location.replace('../'); 
 }
 
 export async function redirectIfLoggedIn() {
     if (await getUser()) {
-        location.replace('./workshop');
+        location.replace('../landing');
     }
 }
 
 export async function signupUser(email, password){
     const response = await client.auth.signUp({ email, password });
+
+    const signin = await client
+        .from('profile')
+        .insert([{
+            username: 'Cadillac Jack',
+            email: email,
+        }]);
+    console.log(signin);
     
     return response.user;
 }

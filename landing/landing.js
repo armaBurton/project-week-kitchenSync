@@ -1,6 +1,7 @@
+import { fetchAllLists, getUser } from "../script/fetch-utils.js";
 
 
 
-window.addEventListener('load', () => {
-    
-});
+
+fetchAllLists();
+getUser();
