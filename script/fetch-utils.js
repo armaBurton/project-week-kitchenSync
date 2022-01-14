@@ -56,7 +56,7 @@ export const fetchAllLists = async() => {
         .from('recipes')
         .select();
 
-    console.log(response);
+    // console.log(response);
 
     return checkError(response);
 };
@@ -68,7 +68,7 @@ export const fetchMyLists = async() => {
         .select()
         .match({ user_id: user.id });
 
-    console.log(myrecipes);
+    // console.log(myrecipes);
 
     checkError(myrecipes);
 };
@@ -81,5 +81,27 @@ export const fetchListItem = async(id) => {
         .single();
 
     console.log(response);
+    return checkError(response);
+};
+
+export const incrementRecipeRating = async(id) => {
+    const recipe = await fetchListItem(id);
+
+    const response = await client
+        .from('recipes')
+        .update({ rating: recipe.rating + 1 })
+        .match({ id });
+
+    return checkError(response);
+};
+
+export const decrementRecipeRating = async(id) => {
+    const recipe = await fetchListItem(id);
+
+    const response = await client
+        .from('recipes')
+        .update({ rating: recipe.rating - 1 })
+        .match({ id });
+
     return checkError(response);
 };
