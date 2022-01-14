@@ -77,6 +77,9 @@ export const fetchListItem = async(id) => {
     const response = await client
         .from('recipes')
         .select()
-        .match({ id });
+        .match({ id })
+        .single();
+
+    console.log(response);
     return checkError(response);
 };
