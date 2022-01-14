@@ -92,6 +92,15 @@ export const fetchSingleRecipe = async(id) => {
     return checkError(response);
 };
 
+export const deleteRecipe = async(id) => {
+    const response = await client
+        .from('recipes')
+        .delete()
+        .match({ id });
+
+    return checkError(response);
+};
+
 export const incrementRecipeRating = async(id) => {
     const recipe = await fetchSingleRecipe(id);
 
@@ -116,7 +125,6 @@ export const decrementRecipeRating = async(id) => {
 
 export const incrementUserRating = async() => {
     const user = await getUserProfile();
-    console.log(user);
 
     const response = await client
         .from('profile')
@@ -145,7 +153,6 @@ export const createRecipe = async(recipe) => {
         );
     return checkError(response);
 };
-
 
 export const deleteProfile = async() => {
     const user = await getUserProfile();
