@@ -1,0 +1,68 @@
+.create-recipe {
+  width: 960px;
+  /* padding-right: auto;
+  padding-left: auto; */
+  /* height:  */
+  background-color: var(--light-grey);
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-recipe-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  height: 50px;
+  width: 100%;
+  background-color: var(--dark-red)
+}
+
+.upload-recipe-heading {
+  color: var(--light-red);
+  font-size: 1.125rem;
+}
+
+.cutlery-icon {
+  height: 40px;
+}
+
+.add-row-button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dish-label, .description-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.keywords {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 15px;
+}
+
+.add-row-button {
+  width: 50px;
+}
+
+.add-row-button:hover {
+  transform: rotate(15deg);
+  transform-origin: 10px 10px;
+}
+
+textarea{
+    height: 100px;
+    width: calc(100% - 55px);
+}
+
+.wide-input{
+    width: calc(100% - 55px);
+}
