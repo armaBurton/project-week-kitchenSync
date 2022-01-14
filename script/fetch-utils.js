@@ -36,7 +36,7 @@ export async function signupUser(email, password){
     await client
         .from('profile')
         .insert([{
-            username: 'Jack',
+            username: 'name',
             email: email,
         }]);
     
@@ -116,6 +116,7 @@ export const decrementRecipeRating = async(id) => {
 
 export const incrementUserRating = async() => {
     const user = await getUserProfile();
+    console.log(user);
 
     const response = await client
         .from('profile')
@@ -142,6 +143,22 @@ export const createRecipe = async(recipe) => {
         .insert(
             recipe
         );
+    return checkError(response);
+};
+
+
+export const deleteProfile = async() => {
+    const user = await getUserProfile();
+    console.log(user);
+
+    const response = await client
+        .from('profile')
+        .delete()
+        .match({ user_id: user.user_id });
+    logout();
+    location.replace('../');
+
+    return checkError(response);
 };
 
 
