@@ -1,10 +1,2 @@
-import { fetchAllLists, fetchListItem, fetchMyLists, getUser, incrementRecipeRating, decrementRecipeRating } from "../script/fetch-utils.js";
+import { fetchAllRecipes, fetchSingleRecipe, fetchMyRecipes, getUser, incrementRecipeRating, decrementRecipeRating, incrementUserRating, decrementUserRating } from "../script/fetch-utils.js";
 
-
-
-
-fetchAllLists();
-getUser();
-fetchMyLists();
-fetchListItem(4);
-decrementRecipeRating(6);

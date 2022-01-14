@@ -6,8 +6,17 @@ const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export const getUser = () => {
     const user = client.auth.user();
-    console.log(user);
     return user;
+};
+
+export const getUserProfile = async() => {
+
+    const response = await client
+        .from('profile')
+        .select()
+        .single();
+
+    return checkError(response);
 };
 
 export async function checkAuth() {
@@ -27,7 +36,7 @@ export async function signupUser(email, password){
     const signin = await client
         .from('profile')
         .insert([{
-            username: 'Cadillac Jack',
+            username: 'Jack',
             email: email,
         }]);
     console.log(signin);
@@ -51,7 +60,7 @@ function checkError({ data, error }) {
     return error ? console.error(error) : data;
 }
 
-export const fetchAllLists = async() => {
+export const fetchAllRecipes = async() => {
     const response = await client 
         .from('recipes')
         .select();
@@ -61,7 +70,7 @@ export const fetchAllLists = async() => {
     return checkError(response);
 };
 
-export const fetchMyLists = async() => {
+export const fetchMyRecipes = async() => {
     const user = getUser();
     const myrecipes = await client
         .from('recipes')
@@ -73,7 +82,7 @@ export const fetchMyLists = async() => {
     checkError(myrecipes);
 };
 
-export const fetchListItem = async(id) => {
+export const fetchSingleRecipe = async(id) => {
     const response = await client
         .from('recipes')
         .select()
@@ -105,3 +114,27 @@ export const decrementRecipeRating = async(id) => {
 
     return checkError(response);
 };
+
+export const incrementUserRating = async() => {
+    const user = await getUserProfile();
+
+    const response = await client
+        .from('profile')
+        .update({ rating: user.rating + 1 })
+        .match({ user_id: user.user_id });
+
+    return checkError(response);
+};
+
+export const decrementUserRating = async() => {
+    const user = await getUserProfile();
+
+    const response = await client
+        .from('profile')
+        .update({ rating: user.rating - 1 })
+        .match({ user_id: user.user_id });
+
+    return checkError(response);
+};
+
+
