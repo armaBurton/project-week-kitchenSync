@@ -33,13 +33,12 @@ export async function redirectIfLoggedIn() {
 export async function signupUser(email, password){
     const response = await client.auth.signUp({ email, password });
 
-    const signin = await client
+    await client
         .from('profile')
         .insert([{
             username: 'Jack',
             email: email,
         }]);
-    console.log(signin);
     
     return response.user;
 }
@@ -89,12 +88,11 @@ export const fetchSingleRecipe = async(id) => {
         .match({ id })
         .single();
 
-    console.log(response);
     return checkError(response);
 };
 
 export const incrementRecipeRating = async(id) => {
-    const recipe = await fetchListItem(id);
+    const recipe = await fetchSingleRecipe(id);
 
     const response = await client
         .from('recipes')
@@ -105,7 +103,7 @@ export const incrementRecipeRating = async(id) => {
 };
 
 export const decrementRecipeRating = async(id) => {
-    const recipe = await fetchListItem(id);
+    const recipe = await fetchSingleRecipe(id);
 
     const response = await client
         .from('recipes')

@@ -1,7 +1,4 @@
 import { 
-    checkAuth,
-    fetchAllLists,
-    getUser,
     redirectIfLoggedIn, 
     signInUser, 
     signupUser,
@@ -21,21 +18,21 @@ signUpForm.addEventListener('submit', async(event)=>{
     event.preventDefault();
     const user = await signupUser(signUpEmail.value, signUpPassword.value);
 
-    // if (user){
-    //     redirectIfLoggedIn();
-    // } else {
-    //     console.error(user);
-    // }
+    if (user){
+        redirectIfLoggedIn();
+    } else {
+        console.error(user);
+    }
 });
 
 signInForm.addEventListener('submit', async(event)=>{
     event.preventDefault();
     const user = await signInUser(signInEmail.value, signInPassword.value);
 
-    // if (user){
-    //     redirectIfLoggedIn();
-    // } else {
-    //     console.error(user);
-    // }
+    if (user){
+        redirectIfLoggedIn();
+    } else {
+        console.error(user);
+    }
 });
 
