@@ -52,3 +52,11 @@ export const fetchAllLists = async() => {
 
     return checkError(response);
 };
+
+export const fetchListItem = async(id) => {
+    const response = await client
+        .from('recipes')
+        .select()
+        .match({ id });
+    return checkError(response);
+};
