@@ -6,7 +6,6 @@
 * {
     /* feel free to update these css variables for a quick theme */
     
-<<<<<<< HEAD
     --dark-red: #330000;
     --dark-red-trans: #330000dd;
     --red: #ff0000;
@@ -14,13 +13,6 @@
     --light-blue: #F7FFFF;
     --blue: #008080;
     --light-red: #FFFAFA;
-=======
-    --black: #0b0c10;
-    --dark-grey: #1f2833;
-    --light-grey: #F2E6E6;
-    --aqua: #66fcf1;
-    --teal: #45a29e;
->>>>>>> 73d0bdf97cb73c571cc7ace411be9fff799eee6d
     
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
     
@@ -44,17 +36,9 @@ html{
 }
 
 body{
-    width: 100vw;
+    width: 100%;
     height: 100%;
-<<<<<<< HEAD
     background-color: var(--light-red);
-=======
-    background-color: var(--light-grey);
-    /* flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center; */
->>>>>>> 73d0bdf97cb73c571cc7ace411be9fff799eee6d
 }
 
 #logo{
@@ -63,7 +47,7 @@ body{
 
 main {
     padding-top: 130px;
-    width: 100vw;
+    width: innerWidth;
     height: 100vh;
     display: flex;
     flex-direction: column;

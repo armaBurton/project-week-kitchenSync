@@ -10,37 +10,37 @@
 </head>
 <body>
     <header>
-      <div class="icon-logo">
-          <img src="../assets/faucet.png" alt="" id="logo">
-          <p class="logo-type">kitchen<span class="sync">Sync</span></p>
-      </div>
-      <div class="login-div">
-          <button>sign-in</button>
-          <button>sign-up</button>
-      </div>
+        <div class="icon-logo">
+            <img src="../assets/faucet.png" alt="" id="logo">
+            <p class="logo-type">kitchen<span class="sync">Sync</span></p>
+        </div>
+        <div class="login-div">
+            <button>sign-in</button>
+            <button>sign-up</button>
+        </div>
     </header>
     <main>
-      <section class="create-recipe">
-        <div class="add-recipe-header">
-          <h5 class="upload-recipe-heading">Upload a Recipe</h5>
-          <img class="cutlery-icon" src="../assets/cutlery-light-red.png" alt="close-window-button">
-        </div>
-          <form class="add-recipe-form">
+        <section class="create-recipe">
+            <div class="add-recipe-header">
+                <h5 class="upload-recipe-heading">Upload a Recipe</h5>
+                <img class="cutlery-icon" src="../assets/cutlery-light-red.png" alt="close-window-button">
+            </div>
+            <form class="add-recipe-form">
             <label class="dish-label">
-              Dish Name:
-              <input type="text" name="dish-name" class="wide-input">
+                Dish Name:
+                <input type="text" name="dish-name" class="wide-input">
             </label>
             <label class="description-label">
-              Description:
-              <textarea type="text" name="description"></textarea>
+                Description:
+                <textarea type="text" name="description" class="description-textarea"></textarea>
             </label>
             <label class="ingredient-label">
             Ingredients:
                 <div class="input-row">
-                <input type="text" name="directions" placeholder="name">
-                <input type="text" name="quantity" placeholder="quantity">
-                <input type="text" name="prep" placeholder="prep">
-                <p class="add-row-button">➕</p>
+                    <input type="text" name="directions" placeholder="name">
+                    <input type="text" name="quantity" placeholder="quantity">
+                    <input type="text" name="prep" placeholder="prep">
+                    <p class="add-row-button">➕</p>
                 </div>
             </label>
             <label class="directions">
@@ -54,7 +54,10 @@
                 Keywords:
                 <input type="text" name="keywords" class="wide-input">
             </label>
-            <button>Upload Image</button>
+            <div class="upload-image">
+                <button>Upload Image</button>
+                <p class="image-path">'./name-of-image.jpg'</p>
+            </div>
             <div class='right-align'>
                 <button>Create Recipe</button>
                 <button>Cancel</button>
