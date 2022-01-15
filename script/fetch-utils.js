@@ -6,7 +6,7 @@ export async function checkAuth() {
 
 export async function redirectIfLoggedIn() {
     if (await getUser()) {
-        location.replace('./workshop');
+        location.replace('../');
     }
 }
 
