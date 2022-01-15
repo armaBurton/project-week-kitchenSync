@@ -4,7 +4,7 @@
     
     --black: #0b0c10;
     --dark-grey: #1f2833;
-    --light-grey: #c5c6c7;
+    --light-grey: #F2E6E6;
     --aqua: #66fcf1;
     --teal: #45a29e;
     
@@ -31,11 +31,15 @@ html{
 body{
     width: 100vw;
     height: 100%;
-    background-color: var(--dark-grey);
+    background-color: var(--light-grey);
     /* flex-direction: column;
     display: flex;
     justify-content: center;
     align-items: center; */
+}
+
+#logo{
+    height: 70px;
 }
 
 main {
