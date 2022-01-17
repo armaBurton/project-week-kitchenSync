@@ -19,10 +19,19 @@
             <p class="logo-type">kitchen<span class="sync">Sync</span></p>
         </div>
         <div class="user-div">
-            <p class="add-recipe">➕</p>
-            <div class="login-div">
-                <button>sign-in</button>
-                <button>sign-up</button>
+            <p class="add-recipe" title="add recipe">➕</p>
+            <div class="login-status-div">
+                <div class="login-div visibility">
+                    <button>sign-in</button>
+                    <button>sign-up</button>
+                </div>
+                <div class="logged-in-div ">
+                    <img class="profile-image" src="./assets/nick.png" alt="">
+                    <div class="name-status">
+                        <p class="user-name">Saint Nick</p>
+                        <p class="user-rank">karma: <span class="points">9000+</span></p>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -90,7 +99,7 @@
                     <img src="./assets/cutlery-light-red.png" alt="" class="close-popup">
                 </div>
                 <div class="signup-form">
-                    <form id="sign-in">
+                    <form id="sign-up">
                         <h3 class="sign-up-in">Sign Up</h3>
                         <label class="text">User Name</label><input type="text" name="user-name" id="user-name-input"/>
                         <label class="email">Email </label><input type="email" name="email" id="sign-up-email"/>
