@@ -80,10 +80,6 @@ input{
     gap: 200px
 }
 
-.left, .right{
-    background-color: var(--light-blue);
-}
-
 h2 {
     font-size: 3.8rem;
     font-weight: bold;
@@ -183,15 +179,12 @@ button{
         -1px -1px 1px var(--blue)
 }
 
-#logo{
-    height: 100px;
-    padding-right: 0;
-    margin-right: 0;
+.logo-type:hover{
+    text-decoration: underline;
 }
 
 .sync{
     font-weight: 900;
-    color: var(--red);
     font-family: Bitter;
     font-style: normal;
     color: var(--light-red);
@@ -216,9 +209,12 @@ footer {
 }
 
 #logo{
-    height: 110px;
+    height: 100%;
+    margin-right: 10px;
+    padding-bottom: 20px;
+    /* height: 110px;
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 20px; */
 }
 
 .top{
@@ -277,4 +273,13 @@ footer {
 
 .card-inner{
     cursor: pointer;
+}
+
+.go-home{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    text-decoration: none;
 }
