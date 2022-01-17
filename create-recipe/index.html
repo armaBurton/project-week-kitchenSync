@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../styles/styles.css">
-  <link rel="stylesheet" href="../styles/create-recipe.css">
-  <title>Create A recipe</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/create-recipe.css">
+    <title>Create A recipe</title>
 </head>
 <body>
     <header>
@@ -14,9 +14,21 @@
             <img src="../assets/faucet.png" alt="" id="logo">
             <p class="logo-type">kitchen<span class="sync">Sync</span></p>
         </div>
-        <div class="login-div">
-            <button>sign-in</button>
-            <button>sign-up</button>
+        <div class="user-div">
+            <p class="add-recipe" title="add recipe">➕</p>
+            <div class="login-status-div">
+                <div class="login-div visibility">
+                    <button>sign-in</button>
+                    <button>sign-up</button>
+                </div>
+                <div class="logged-in-div ">
+                    <img class="profile-image" src="../assets/nick.png" alt="">
+                    <div class="name-status">
+                        <p class="user-name">Saint Nick</p>
+                        <p class="user-rank">karma: <span class="points">9000+</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <main>
@@ -36,7 +48,7 @@
             </label>
             <label class="ingredient-label">
             Ingredients:
-                <div class="input-row">
+                <div class="input-ingredient-row">
                     <input type="text" name="directions" placeholder="name">
                     <input type="text" name="quantity" placeholder="quantity">
                     <input type="text" name="prep" placeholder="prep">
@@ -45,9 +57,9 @@
             </label>
             <label class="directions">
                 Directions:
-                <div class="input-row">
-                <textarea type="text" name="name"></textarea>
-                <p class="add-row-button">➕</p>
+                <div class="input-direction-row">
+                    <textarea type="text" name="name"></textarea>
+                    <p class="add-row-button">➕</p>
                 </div>
             </label>
             <label class="keywords">
