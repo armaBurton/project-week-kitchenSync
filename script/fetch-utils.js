@@ -4,8 +4,8 @@ const SUPABASE_URL = 'https://esjhwxqfmwrbnnyyxfav.supabase.co';
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-const loggedOutButtons = document.querySelector('.login-div');
-const loggedInButton = document.querySelector('.logged-in-div');
+export const loggedOutButtons = document.querySelector('.login-div');
+export const loggedInButton = document.querySelector('.logged-in-div');
 
 export const getUser = () => {
     const user = client.auth.user();
@@ -26,18 +26,12 @@ export async function checkAuth() {
     const user = await getUser();
     if (!user) {
         location.replace('./');
-        loggedInButton.classList.add('visibility');
-        loggedOutButtons.classList.remove('visibility');
     }
 }
 
 export async function redirectIfLoggedIn() {
-    if (await getUser()) {
-        // location.replace('./');
-        loggedInButton.classList.remove('visibility');
-        loggedOutButtons.classList.add('visibility');
-        console.log('test');
-    }
+    location.replace('./');
+    
 }
 
 export async function signupUser(email, password, username){

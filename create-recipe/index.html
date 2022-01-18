@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/create-recipe.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Create A recipe</title>
 </head>
 <body>
@@ -17,17 +18,16 @@
             </a>
         </div>
         <div class="user-div">
-            <p class="add-recipe" title="add recipe">➕</p>
             <div class="login-status-div">
-                <div class="login-div visibility">
-                    <button>sign-in</button>
-                    <button>sign-up</button>
+                <div class="login-div">
+                    <button id="sign-in-button">sign-in</button>
+                    <button id="sign-up-button">sign-up</button>
                 </div>
-                <div class="logged-in-div ">
-                    <img class="profile-image" src="../assets/nick.png" alt="">
+                <div class="logged-in-div visibility">
+                    <img class="profile-image" src="./assets/nick.png" alt="">
                     <div class="name-status">
                         <p class="user-name">Saint Nick</p>
-                        <p class="user-rank">karma: <span class="points">9000+</span></p>
+                        <button id="logout-button">Log Out</button>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <h5 class="upload-recipe-heading">Upload a Recipe</h5>
                 <img class="cutlery-icon" src="../assets/cutlery-light-red.png" alt="close-window-button">
             </div>
-            <form class="add-recipe-form">
+            <form class="add-recipe-form" id="add-recipe-form">
             <label class="dish-label">
                 Dish Name:
                 <input type="text" name="dish-name" class="wide-input">
@@ -50,12 +50,15 @@
             </label>
             <label class="ingredient-label">
             Ingredients:
+            <div id="ingredient-list-div">
                 <div class="input-ingredient-row">
-                    <input type="text" name="directions" placeholder="name">
-                    <input type="text" name="quantity" placeholder="quantity">
-                    <input type="text" name="prep" placeholder="prep">
-                    <p class="add-row-button">➕</p>
+                    <input type="number" value="1" name="quantity-0" placeholder="quantity">
+                    <input type="text" name="name-0" placeholder="name">
+                    <input type="text" name="prep-0" placeholder="prep">
                 </div>
+                
+            </div>
+                <p class="add-row-button" id="add-row-button">➕</p>
             </label>
             <label class="directions">
                 Directions:
@@ -80,5 +83,8 @@
     </section>
 
 </main>
+<!-- <script type="module" src="../script/script.js"></script> -->
+<script type="module" src="./create-recipe.js"></script>
+
 </body>
 </html>

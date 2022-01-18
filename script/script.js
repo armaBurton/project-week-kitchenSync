@@ -5,11 +5,14 @@ import {
     getUser,
     logout
 } from './fetch-utils.js';
+import { renderHeader } from './render-utils.js';
 
 
 const signUpButton = document.querySelector('#sign-up-button');
 const signInButton = document.querySelector('#sign-in-button');
+
 const logoutButton = document.querySelector('#logout-button');
+
 const signInDisplay = document.getElementById('login');
 const signInForm = document.getElementById('sign-in');
 const signInEmail = document.getElementById('sign-in-email');
@@ -26,7 +29,11 @@ const switchModalButton = document.querySelector('.new-user-span');
 const loggedOutButtons = document.querySelector('.login-div');
 
 const loggedInButton = document.querySelector('.logged-in-div');
+
+const createRecipeButton = document.getElementById('create-recipe');
 // redirectIfLoggedIn();
+
+renderHeader();
 
 switchModalButton.addEventListener('click', () => {
     signInDisplay.classList.add('visibility');
@@ -77,4 +84,8 @@ signInForm.addEventListener('submit', async(event)=>{
     } else {
         console.error(user);
     }
+});
+
+createRecipeButton.addEventListener('click', () => {
+    location.replace('./create-recipe');
 });
