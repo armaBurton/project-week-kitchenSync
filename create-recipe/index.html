@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/create-recipe.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <title>Create A recipe</title>
 </head>
 <body>
@@ -38,7 +39,7 @@
                 <h5 class="upload-recipe-heading">Upload a Recipe</h5>
                 <img class="cutlery-icon" src="../assets/cutlery-light-red.png" alt="close-window-button">
             </div>
-            <form class="add-recipe-form">
+            <form class="add-recipe-form" id="add-recipe-form">
             <label class="dish-label">
                 Dish Name:
                 <input type="text" name="dish-name" class="wide-input">
@@ -51,15 +52,11 @@
             Ingredients:
             <div id="ingredient-list-div">
                 <div class="input-ingredient-row">
-                    <input type="text" name="directions-1" placeholder="name">
-                    <input type="text" name="quantity-1" placeholder="quantity">
-                    <input type="text" name="prep-1" placeholder="prep">
+                    <input type="number" value="1" name="quantity-0" placeholder="quantity">
+                    <input type="text" name="name-0" placeholder="name">
+                    <input type="text" name="prep-0" placeholder="prep">
                 </div>
-                <div class="input-ingredient-row">
-                    <input type="text" name="directions-1" placeholder="name">
-                    <input type="text" name="quantity-1" placeholder="quantity">
-                    <input type="text" name="prep-1" placeholder="prep">
-                </div>
+                
             </div>
                 <p class="add-row-button" id="add-row-button">➕</p>
             </label>
@@ -86,5 +83,8 @@
     </section>
 
 </main>
+<!-- <script type="module" src="../script/script.js"></script> -->
+<script type="module" src="./create-recipe.js"></script>
+
 </body>
 </html>

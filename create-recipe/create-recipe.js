@@ -1,10 +1,11 @@
 import { renderHeader } from '../script/render-utils.js';
 
-const newIngredientRowButton = document.getElementsId('add-row-button');
+const newIngredientRowButton = document.getElementById('add-row-button');
 const ingredientsInputContainer = document.getElementById('ingredient-list-div');
 
 
 const recipeForm = document.getElementById('add-recipe-form');
+
 
 recipeForm.addEventListener('submit', async() => {
     const form = new FormData(recipeForm);
@@ -16,20 +17,30 @@ recipeForm.addEventListener('submit', async() => {
 });
 
 newIngredientRowButton.addEventListener('click', () => {
+
+    const containerLength = ingredientsInputContainer.children.length;
     const ingredientObjectDiv = document.createElement('div');
+    ingredientObjectDiv.classList.add('input-ingredient-row');
+    for (let i = 0; i < ingredientsInputContainer.children.length; i++) {
+    
+        const itemNameInput = document.createElement('input');
+        itemNameInput.setAttribute('type', 'text');
+        itemNameInput.setAttribute('name', `name-${i + 1}`);
+        itemNameInput.setAttribute('placeholder', 'name');
+    
+        const quanInput = document.createElement('input');
+        quanInput.setAttribute('type', 'number');
+        quanInput.setAttribute('value', '1');
+        quanInput.setAttribute('name', `quantity-${i + 1}`);
+        quanInput.setAttribute('placeholder', 'quantity');
+    
+        const prepInput = document.createElement('input');
+        prepInput.setAttribute('type', 'text');
+        prepInput.setAttribute('name', `prep-${i + 1}`);
+        prepInput.setAttribute('placeholder', 'prep');
 
-    const dirInput = document.createElement('input');
-    dirInput.setAttribute('type', 'text');
-    dirInput.setAttribute('name', 'directions');
-    dirInput.setAttribute('placeholder', 'name');
+        ingredientObjectDiv.append(quanInput, itemNameInput, prepInput);
+    }
+    ingredientsInputContainer.append(ingredientObjectDiv);
 
-    const quanInput = document.createElement('input');
-    quanInput.setAttribute('type', 'text');
-    quanInput.setAttribute('name', 'quantity');
-    quanInput.setAttribute('placeholder', 'quantity');
-
-    const prepInput = document.createElement('input');
-    prepInput.setAttribute('type', 'text');
-    prepInput.setAttribute('name', 'prep');
-    prepInput.setAttribute('placeholder', 'prep');
 });
