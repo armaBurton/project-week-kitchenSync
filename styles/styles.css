@@ -5,7 +5,7 @@
 
 * {
     /* feel free to update these css variables for a quick theme */
-    
+
     --dark-red: #330000;
     --dark-red-trans: #330000dd;
     --red: #ff0000;
@@ -13,15 +13,15 @@
     --light-blue: #F7FFFF;
     --blue: #008080;
     --light-red: #FFFAFA;
-    
+
     /* https://coolors.co/generate and click export -> scss to get the colors to copy and paste below*/
-    
+
     --header-height: 80px;
     --shadow: 0px 0px 5px rgba(0,0,0,0.45);
     --footer-shadow: 0px 0px 20px -3px rgba(0,0,0,0.45);
     --gutter: 30px;
     --footer-height: 35px;
-    
+
     margin: 0;
 	padding: 0;
 	border: 0;
@@ -90,7 +90,7 @@ h2 {
 }
 
 .email, .password{
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-bottom: 3px;
 }
 
@@ -111,7 +111,7 @@ header {
     height: 100%;
     display: flex;
     padding-left: 0;
-    
+
 }
 
 .name-status{
