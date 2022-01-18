@@ -17,17 +17,16 @@
             </a>
         </div>
         <div class="user-div">
-            <p class="add-recipe" title="add recipe">➕</p>
             <div class="login-status-div">
-                <div class="login-div visibility">
-                    <button>sign-in</button>
-                    <button>sign-up</button>
+                <div class="login-div">
+                    <button id="sign-in-button">sign-in</button>
+                    <button id="sign-up-button">sign-up</button>
                 </div>
-                <div class="logged-in-div ">
-                    <img class="profile-image" src="../assets/nick.png" alt="">
+                <div class="logged-in-div visibility">
+                    <img class="profile-image" src="./assets/nick.png" alt="">
                     <div class="name-status">
                         <p class="user-name">Saint Nick</p>
-                        <p class="user-rank">karma: <span class="points">9000+</span></p>
+                        <button id="logout-button">Log Out</button>
                     </div>
                 </div>
             </div>
@@ -50,12 +49,19 @@
             </label>
             <label class="ingredient-label">
             Ingredients:
+            <div id="ingredient-list-div">
                 <div class="input-ingredient-row">
-                    <input type="text" name="directions" placeholder="name">
-                    <input type="text" name="quantity" placeholder="quantity">
-                    <input type="text" name="prep" placeholder="prep">
-                    <p class="add-row-button">➕</p>
+                    <input type="text" name="directions-1" placeholder="name">
+                    <input type="text" name="quantity-1" placeholder="quantity">
+                    <input type="text" name="prep-1" placeholder="prep">
                 </div>
+                <div class="input-ingredient-row">
+                    <input type="text" name="directions-1" placeholder="name">
+                    <input type="text" name="quantity-1" placeholder="quantity">
+                    <input type="text" name="prep-1" placeholder="prep">
+                </div>
+            </div>
+                <p class="add-row-button" id="add-row-button">➕</p>
             </label>
             <label class="directions">
                 Directions:
