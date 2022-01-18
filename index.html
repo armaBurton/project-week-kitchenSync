@@ -9,20 +9,31 @@
     <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/landing.css">
-    <title>Document</title>
+    <title>kitchenSync</title>
 </head>
 
 <body>
     <header>
         <div class="icon-logo">
-            <img src="./assets/faucet.png" alt="" id="logo">
-            <p class="logo-type">kitchen<span class="sync">Sync</span></p>
+            <a class="go-home" href="./">
+                <img src="./assets/faucet.png" alt="" id="logo">
+                <p class="logo-type">kitchen<span class="sync">Sync</span></p>
+            </a>
         </div>
         <div class="user-div">
-            <p class="add-recipe">➕</p>
-            <div class="login-div">
-                <button>sign-in</button>
-                <button>sign-up</button>
+            <p class="add-recipe" title="add recipe">➕</p>
+            <div class="login-status-div">
+                <div class="login-div">
+                    <button>sign-in</button>
+                    <button>sign-up</button>
+                </div>
+                <div class="logged-in-div visibility">
+                    <img class="profile-image" src="./assets/nick.png" alt="">
+                    <div class="name-status">
+                        <p class="user-name">Saint Nick</p>
+                        <p class="user-rank">karma: <span class="points">9000+</span></p>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -67,7 +78,6 @@
             <div class="login-holder">
                 <div class="login-header">
                     <p class="login-header-text">Log In</p>
-                    <!-- <div lass="close-popup"></div> -->
                     <img src="./assets/cutlery-light-red.png" a;lt="" class="close-popup">
                 </div>
                 <div class="login-form">
@@ -90,7 +100,7 @@
                     <img src="./assets/cutlery-light-red.png" alt="" class="close-popup">
                 </div>
                 <div class="signup-form">
-                    <form id="sign-in">
+                    <form id="sign-up">
                         <h3 class="sign-up-in">Sign Up</h3>
                         <label class="text">User Name</label><input type="text" name="user-name" id="user-name-input"/>
                         <label class="email">Email </label><input type="email" name="email" id="sign-up-email"/>
@@ -109,24 +119,3 @@
 </body>
 
 </html>
-
-<!-- <div class="left">
-    <div class="auth-container">
-        <form id="sign-in">
-            <h3>Sign In</h3>
-            <label class="email">Email </label><input type="email" name="email" id="sign-in-email"/>
-            <label class="password">Password </label><input type="password" name="password" id="sign-in-password"/>
-            <button>Submit</button>
-        </form>
-    </div>
-</div>
-<div class="right">
-    <div class="auth-container">
-        <form id='sign-up'>
-            <h3>Sign Up</h3>
-            <label class="email">Email </label><input type='email' name='email' id="sign-up-email" />
-            <label class="password">Password </label><input type='password' name='password' id="sign-up-password" />
-            <button>Submit</button>
-        </form>
-    </div>
-</div> -->

@@ -6,20 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/styles.css">
   <link rel="stylesheet" href="../styles/details.css">
-  <title>Create A recipe</title>
+  <title>Recipe Details</title>
 </head>
 <body>
     <header>
       <div class="icon-logo">
+        <a class="go-home" href="../">
           <img src="../assets/faucet.png" alt="" id="logo">
           <p class="logo-type">kitchen<span class="sync">Sync</span></p>
+      </a>
       </div>
-      <div class="login-div">
-          <button>sign-in</button>
-          <button>sign-up</button>
-      </div>
+      <div class="user-div">
+        <p class="add-recipe" title="add recipe">➕</p>
+        <div class="login-status-div">
+            <div class="login-div visibility">
+                <button>sign-in</button>
+                <button>sign-up</button>
+            </div>
+            <div class="logged-in-div ">
+                <img class="profile-image" src="../assets/nick.png" alt="">
+                <div class="name-status">
+                    <p class="user-name">Saint Nick</p>
+                    <p class="user-rank">karma: <span class="points">9000+</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
     </header>
     <main>
+
       <section class="details-card">
         <div class="detail-header"></div>
         <div class="detail-main">
@@ -33,50 +48,55 @@
               <img src="../assets/nick.png" alt="" class="user-img">
               <p class="created-at">Posted by u/User_name 17 hours ago</p>
             </div>
-              <div class="recipe-details-container">
-                <h5 class="recipe-heading"></h5>
-                <img src="../assets/food-tray.png" alt="dish-img" class="dish-img">
-                <p class="dish-description"></p>
-                <div class="recipe-display-container">
-                <div class="ingredients">
-                  <h3>Ingredients</h3>
-                  <ul>
-                    <li>1 cup flour</li>
-                    <li>1/2 cup milk</li>
-                    <li>1/4 cup sugar</li>
-                  </ul>
-                </div>
-                <div class="directions">
-                  <h3>Directions</h3>
-                  <ol>
-                    <li>frqwe</li>
-                    <li>ecwdc</li>
-                    <li>cdwcd</li>
-                  </ol>
-                </div>
-              </div>
-              </div>
-              <div class='comments-container'>
-                <label>Comment
-                  <textarea class="add-comment-section"></textarea>
-                  <button class="submit-comment-button">Submit</button>
-                </label>
-                <div class="comments-display-container">
-                  <div class="user-div">
-                    <img src="../assets/nick.png" alt="" class="user-img">
-                    <p class="created-at">Posted by u/User_name 17 hours ago</p>
+                <div class="recipe-details-container">
+                    <h5 class="recipe-heading"></h5>
+                    <img src="../assets/well-foods-microbiome-superJumbo.jpg" alt="dish-img" class="dish-img">
+                    <p class="dish-description"></p>
+                    <div class="recipe-display-container">
+                        <div class="ingredients">
+                            <h3>Ingredients</h3>
+                            <ul>
+                                <li>1 cup flour</li>
+                                <li>1/2 cup milk</li>
+                                <li>1/4 cup sugar</li>
+                            </ul>
+                        </div>
+                        <div class="directions">
+                            <h3>Directions</h3>
+                            <ol>
+                                <li>frqwe</li>
+                                <li>ecwdc</li>
+                                <li>cdwcd</li>
+                            </ol>
+                        </div>
                   </div>
-                  <p class="comment"></p>
-                  <div class='comment-vote'>
-                    <p class="arrow up">🡅</p>
-                    <p class="counter">3</p>
-                    <p class="arrow down">🡇</p>
-                  </div>
-                </div>
               </div>
+          </div>
+      </div>
+      </section>
+      
+      <section class="comments">
+        <div class='comments-container'>
+          <label class="comment-label">Comment
+            <textarea class="add-comment-section"></textarea>
+            <button class="submit-comment-button">Submit</button>
+          </label>
+        </div>
+        <div class="comments-display-container">
+          <div class="user-div">
+            <img src="../assets/nick.png" alt="" class="user-img">
+            <p class="created-at-comments">Posted by u/User_name 17 hours ago</p>
+          </div>
+          <p class="comment">Spicy jalapeno bacon ipsum dolor amet short ribs ham pork landjaeger alcatra tenderloin bacon shank, capicola ball tip chicken leberkas. Turducken leberkas shankle biltong, chicken fatback andouille shoulder ham hock drumstick brisket jowl landjaeger. Ground round chicken landjaeger, tenderloin bacon shankle swine kielbasa pork belly ham doner pancetta jerky cupim beef. Chuck frankfurter corned beef kevin, picanha beef ground round pork belly pig kielbasa short ribs.</p>
+          <div class='comment-vote'>
+            <p class="arrow up">🡅</p>
+            <p class="counter">3</p>
+            <p class="arrow down">🡇</p>
           </div>
         </div>
       </section>
+
+    
 
     </main>
 </body>

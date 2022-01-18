@@ -1,70 +1,68 @@
 .create-recipe {
-  width: 960px;
-  /* padding-right: auto;
-  padding-left: auto; */
-  /* height:  */
-  background-color: var(--light-grey);
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 960px;
+    background-color: var(--light-grey);
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .add-recipe-header{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 50px;
-  height: 50px;
-  width: 100%;
-  background-color: var(--dark-red)
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    height: 50px;
+    width: 100%;
+    background-color: var(--dark-red)
 }
 
 .upload-recipe-heading {
-  color: var(--light-red);
-  font-size: 1.125rem;
+    color: var(--light-red);
+    font-size: 1.125rem;
 }
 
 .cutlery-icon {
-  height: 40px;
+    height: 40px;
 }
 
 .add-row-button {
-  display: inline-block;
-  cursor: pointer;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .dish-label, .description-label {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .keywords {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .add-row-button {
-  width: 50px;
+    padding-top: auto;
+    padding-bottom: 0;
 }
 
 .add-row-button:hover {
-  transform: rotate(15deg);
-  transform-origin: 10px 10px;
+    transform: rotate(15deg);
 }
 
 textarea{
     height: 100px;
-    width: calc(100% - 55px);
+    width: 100%;
 }
 
-.wide-input{
-    width: calc(100% - 55px);
+.wide-input, .description-textarea{
+    width: 100%;
+    /* width: calc(100% - 55px); */
 }
 
 .right-align{
@@ -76,4 +74,32 @@ textarea{
     padding-bottom: 30px;
     gap: 10px;
     justify-content: flex-end;
+}
+
+.image-path{
+    margin-top: 20px;
+    margin-left: 20px;
+    color: var(--red);
+}
+
+.upload-image{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.input-direction-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.input-ingredient-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
 }
