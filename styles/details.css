@@ -1,58 +1,60 @@
-.details-card {
-  width: 960px;
-  background-color: var(--light-grey);
-  padding-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+html{
+}
+
+.details-card, .comments {
+    width: 960px;
+    background-color: var(--light-grey);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .detail-header{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 50px;
-  height: 50px;
-  width: 100%;
-  background-color: var(--dark-red)
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    height: 50px;
+    width: 100%;
+    background-color: var(--dark-red)
 }
 
 .upload-recipe-heading {
-  color: var(--light-red);
-  font-size: 1.125rem;
+    color: var(--light-red);
+    font-size: 1.125rem;
 }
 
 .cutlery-icon {
-  height: 40px;
+    height: 40px;
 }
 
 .add-row-button {
-  display: inline-block;
-  cursor: pointer;
+    display: inline-block;
+    cursor: pointer;
 }
 
 .dish-label, .description-label {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .keywords {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-  margin-top: 15px;
+    margin-top: 15px;
 }
 
 .add-row-button {
-  width: 50px;
+    width: 50px;
 }
 
 .add-row-button:hover {
-  transform: rotate(15deg);
-  transform-origin: 10px 10px;
+    transform: rotate(15deg);
+    transform-origin: 10px 10px;
 }
 
 textarea{
@@ -76,51 +78,154 @@ textarea{
 }
 
 .left {
-  padding-top: 15px;
-  width: 45px;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
+    padding-top: 15px;
+    width: 45px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid var(--red);
+
 }
 
 .right {
-  padding-top: 20px;
-  width: 100%;
+    padding-top: 20px;
+    width: 100%;
+    border-right: 1px solid var(--red);
 }
 
 .detail-main {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: var(--light-blue);
+    border-bottom: 1px solid var(--red);
 }
 
 .user-img {
-  height: 25px;
-  width: 25px;
-  border-radius: 40px;
-  padding: 0;
+    height: 25px;
+    width: 25px;
+    border-radius: 40px;
+    padding: 0;
+    cursor: pointer;
 }
 
 .ingredients, .directions, .comments-container, .comments-display-container{
-  margin-top: 15px;
+    margin-top: 15px;
+}
+
+.comments-container{
+  width: 100%;
+  display: flex;
 }
 
 h3 {
-  text-decoration: underline;
-  margin-bottom: 5px;
+    text-decoration: underline;
+    margin-bottom: 5px;
 }
 
 .dish-img {
-  height: 200px;
-  width: auto;
+    margin-top: 20px;
+    height: 400px;
+    width: 100%;
+    object-fit: cover;
 }
 
 .user-div {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.comments{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.comment{
+  margin-top: 10px;
 }
 
 .comments-container {
+    margin-top: 30px;
+    width: 100%;
+}
+
+.comment-label{
+  width: 100%;
+}
+
+.directions{
+  margin-bottom: 30px;
+}
+
+.add-comment-section{
+  margin-top: 10px;
+  width: 100%;
+}
+
+.comments-display-container{
+  width: 100%;
+}
+
+.comment-vote{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.arrow{
+  font-size: 1.5rem;
+}
+
+.arrow:hover{
+  color: var(--red);
+  cursor: pointer;
+}
+
+ul, ol{
+  margin-left: 25px;
+}
+
+.created-at{
+  margin-left: 10px;
+  color: var(--light-grey);
+  font-size: .75rem;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.created-at:hover{
+  color: var(--red);
+}
+
+.created-at-comments{
+  margin-left: 5px;
+  color: var(--light-red);
+  font-size: .75rem;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.created-at-comments:hover{
+  color: var(--red);
+}
+
+.user-div{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+li{
+  margin-top: 7px;
+}
+
+h3{
   margin-top: 30px;
 }
