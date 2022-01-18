@@ -56,7 +56,7 @@
                         <input type="text" name="name-0" placeholder="name">
                         <input type="text" name="prep-0" placeholder="prep">
                     </div>
-                    
+
                 </div>
                     <p class="add-row-button" id="add-row-button">➕</p>
                 </label>
@@ -67,19 +67,19 @@
                             <textarea type="text" name="name-0" placeholder="Step 1"></textarea>
                         </div>
                     </div>
-                    <p class="add-direction-row-button" id="add-direction-row-button">➕</p>
+                    <p class="add-row-button" id="add-direction-row-button">➕</p>
                 </label>
-                <label class="keywords">
+                <!-- <label class="keywords">
                     Keywords:
                     <input type="text" name="keywords" class="wide-input">
-                </label>
+                </label> -->
                 <div class="upload-image">
-                    <button>Upload Image</button>
-                    <p class="image-path">'./name-of-image.jpg'</p>
+                    Upload Image:
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" id="upload-dish-image" name="dish-image">
                 </div>
                 <div class='right-align'>
-                    <button>Create Recipe</button>
-                    <button>Cancel</button>
+                    <button id="create-recipe-button">Create Recipe</button>
+                    <button id="cancel-button">Cancel</button>
                 </div>
             </form>
         </section>

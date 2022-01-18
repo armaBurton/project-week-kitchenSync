@@ -4,8 +4,14 @@ const newIngredientRowButton = document.getElementById('add-row-button');
 const ingredientsInputContainer = document.getElementById('ingredient-list-div');
 
 const recipeForm = document.getElementById('add-recipe-form');
+const cancelButton = document.getElementById('cancel-button');
 
-recipeForm.addEventListener('submit', async() => {
+cancelButton.addEventListener('click', () => {
+    location.reload();
+    // recipeForm.reset();
+});
+recipeForm.addEventListener('submit', async(e) => {
+    e.preventDefault();
     const form = new FormData(recipeForm);
 
     const dishName = form.get('dish-name');
@@ -20,18 +26,18 @@ newIngredientRowButton.addEventListener('click', () => {
     const ingredientObjectDiv = document.createElement('div');
     ingredientObjectDiv.classList.add('input-ingredient-row');
     for (let i = 0; i < ingredientsInputContainer.children.length; i++) {
-    
+        ingredientObjectDiv.textContent = '';
         const itemNameInput = document.createElement('input');
         itemNameInput.setAttribute('type', 'text');
         itemNameInput.setAttribute('name', `name-${i + 1}`);
         itemNameInput.setAttribute('placeholder', 'name');
-    
+
         const quanInput = document.createElement('input');
         quanInput.setAttribute('type', 'number');
         quanInput.setAttribute('value', '1');
         quanInput.setAttribute('name', `quantity-${i + 1}`);
         quanInput.setAttribute('placeholder', 'quantity');
-    
+
         const prepInput = document.createElement('input');
         prepInput.setAttribute('type', 'text');
         prepInput.setAttribute('name', `prep-${i + 1}`);
@@ -56,7 +62,7 @@ addDirectionRowButton.addEventListener(`click`, () => {
         const directionText = document.createElement(`textarea`);
         directionText.setAttribute(`type`, `text`);
         directionText.setAttribute(`name`, `name-${i + 1}`);
-        directionText.setAttribute(`placeholder`, `step-${num + 1}`);
+        directionText.setAttribute(`placeholder`, `Step ${num + 1}`);
 
         inputDirectionRow.append(directionText);
     }
