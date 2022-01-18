@@ -21,7 +21,7 @@ export const getUserProfile = async() => {
 
 export async function checkAuth() {
     const user = await getUser();
-    if (!user) location.replace('../'); 
+    if (!user) location.replace('../');
 }
 
 export async function redirectIfLoggedIn() {
@@ -30,16 +30,16 @@ export async function redirectIfLoggedIn() {
     }
 }
 
-export async function signupUser(email, password){
+export async function signupUser(email, password, username){
     const response = await client.auth.signUp({ email, password });
 
     await client
         .from('profile')
         .insert([{
-            username: 'name',
-            email: email,
+            username,
+            email
         }]);
-    
+
     return response.user;
 }
 
@@ -60,7 +60,7 @@ function checkError({ data, error }) {
 }
 
 export const fetchAllRecipes = async() => {
-    const response = await client 
+    const response = await client
         .from('recipes')
         .select();
 
