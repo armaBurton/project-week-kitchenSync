@@ -25,7 +25,7 @@ export const getUserProfile = async() => {
 export async function checkAuth() {
     const user = await getUser();
     if (!user) {
-        location.replace('./');
+        location.replace('../');
     }
 }
 

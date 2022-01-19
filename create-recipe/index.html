@@ -53,18 +53,8 @@
                 <div id="ingredient-list-div">
                     <div class="input-ingredient-row">
                         <input type="number" value="1" name="quantity-0" placeholder="quantity">
-                        <input type="text" name="name-0" placeholder="name" value="potato">
-                        <input type="text" name="prep-0" placeholder="prep" value="sliced">
-                    </div>
-                    <div class="input-ingredient-row">
-                        <input type="number" value="1" name="quantity-0" placeholder="quantity">
-                        <input type="text" name="name-1" placeholder="name" value="cucumber">
-                        <input type="text" name="prep-1" placeholder="prep" value="chopped">
-                    </div>
-                    <div class="input-ingredient-row">
-                        <input type="number" value="1" name="quantity-0" placeholder="quantity">
-                        <input type="text" name="name-2" placeholder="name" value="onion">
-                        <input type="text" name="prep-2" placeholder="prep" value="chopped">
+                        <input type="text" name="name-0" placeholder="name">
+                        <input type="text" name="prep-0" placeholder="prep">
                     </div>
 
                 </div>
@@ -93,9 +83,48 @@
                 </div>
             </form>
         </section>
+        <section class="login visibility" id="login">
+            <div class="login-holder">
+                <div class="login-header">
+                    <p class="login-header-text">Sign In</p>
+                    <img src="./assets/cutlery-light-red.png" alt="" class="close-popup">
+                </div>
+                <div class="login-form">
+                    <form id="sign-in">
+                        <h3 class="sign-up-in">Sign In</h3>
+                        <label class="email">Email </label><input type="email" name="email" id="sign-in-email"/>
+                        <label class="password">Password </label><input type="password" name="password" id="sign-in-password"/>
+                        <div class="submit-div">
+                            <button class="submit">Submit</button>
+                            <p class="new-user">New User? Click <span class="new-user-span">here</span>.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="signup visibility" id="signup">
+            <div class="signup-holder">
+                <div class="signup-header">
+                    <p class="signup-header-text">Sign Up</p>
+                    <img src="./assets/cutlery-light-red.png" alt="" class="close-popup">
+                </div>
+                <div class="signup-form">
+                    <form id="sign-up">
+                        <h3 class="sign-up-in">Sign Up</h3>
+                        <label class="text">User Name</label><input type="text" name="user-name" id="user-name-input"/>
+                        <label class="email">Email </label><input type="email" name="email" id="sign-up-email"/>
+                        <label class="password">Password </label><input type="password" name="password" id="sign-up-password"/>
+                        <div class="submit-div">
+                            <button class="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id="create-recipe"></div>   
+        </section>
 
 </main>
-<!-- <script type="module" src="../script/script.js"></script> -->
+<script type="module" src="../script/script.js"></script>
 <script type="module" src="./create-recipe.js"></script>
 
 </body>
