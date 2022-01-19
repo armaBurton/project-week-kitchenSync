@@ -71,7 +71,7 @@ export const fetchAllRecipes = async() => {
         .from('recipes')
         .select();
 
-    // console.log(response);
+    console.log(response);
 
     return checkError(response);
 };
@@ -180,10 +180,36 @@ export const uploadRecipeImage = async(image) => {
     console.log(user);
     const response = await client
         .storage
-        .from('bucket-name')
+        .from('recipe-images')
         .upload(`${user.id}/${image.name}`, image.name, {
             cacheControl: '3600',
             upsert: false
         });
     return checkError(response);
 };
+
+// export const downloadRecipeImage = async(recipe) => {
+//     const user = await getUser();
+    
+//     console.log(recipe);
+//     const response = await client
+//         .storage
+//         .from(`recipe-images`)
+//         .download(`${user.id}/${recipe.image}`);
+        
+//     return checkError(response);
+// };
+
+
+export const downloadRecipeImage = async(recipe) => {
+    const user = await getUser();
+
+    return await client.storage
+        .from('recipe-images')
+        .download(`${user.id}/${recipe.image}`)
+        .then(({ data, error }) => {
+            if (error) throw error;
+            // return URL.createObjectURL(data);
+            return data;
+        });
+}
