@@ -3,7 +3,7 @@ import {
     signInUser,
     signupUser,
     getUser,
-    logout
+    logout,
 } from './fetch-utils.js';
 import { renderHeader } from './render-utils.js';
 
@@ -86,6 +86,14 @@ signInForm.addEventListener('submit', async(event)=>{
     }
 });
 
-createRecipeButton.addEventListener('click', () => {
-    location.replace('./create-recipe');
+createRecipeButton.addEventListener('click', async() => {
+    const user = await getUser();
+    if (user) {
+        location.replace('./create-recipe');
+    } else {
+        signInDisplay.classList.remove('visibility');
+        renderHeader();
+        // alert('sign in to add a recipe');
+    }
+
 });

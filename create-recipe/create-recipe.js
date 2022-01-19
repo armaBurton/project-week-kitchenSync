@@ -1,5 +1,5 @@
 import { renderHeader } from '../script/render-utils.js';
-import { createRecipe } from '../script/fetch-utils.js';
+import { createRecipe, checkAuth } from '../script/fetch-utils.js';
 
 const newIngredientRowButton = document.getElementById('add-row-button');
 const ingredientsInputContainer = document.getElementById('ingredient-list-div');
@@ -7,10 +7,13 @@ const ingredientsInputContainer = document.getElementById('ingredient-list-div')
 const recipeForm = document.getElementById('add-recipe-form');
 const cancelButton = document.getElementById('cancel-button');
 
+checkAuth();
+
 cancelButton.addEventListener('click', () => {
     location.reload();
     // recipeForm.reset();
 });
+
 recipeForm.addEventListener('submit', async(e) => {
     e.preventDefault();
     const form = new FormData(recipeForm);
