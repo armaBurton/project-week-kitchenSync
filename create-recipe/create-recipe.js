@@ -10,7 +10,8 @@ const cancelButton = document.getElementById('cancel-button');
 checkAuth();
 
 cancelButton.addEventListener('click', () => {
-    location.reload();
+    window.location.href = `../`;
+
     // recipeForm.reset();
 });
 
@@ -49,11 +50,12 @@ recipeForm.addEventListener('submit', async(e) => {
     await uploadRecipeImage(dishImg);
 
     await createRecipe(recipe);
+    window.location.href = `../`;
 });
 
 newIngredientRowButton.addEventListener('click', () => {
 
-    const containerLength = ingredientsInputContainer.children.length;
+    // const containerLength = ingredientsInputContainer.children.length;
     const ingredientObjectDiv = document.createElement('div');
     ingredientObjectDiv.classList.add('input-ingredient-row');
     for (let i = 0; i < ingredientsInputContainer.children.length; i++) {
