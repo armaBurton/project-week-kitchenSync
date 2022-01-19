@@ -178,7 +178,7 @@ export const uploadRecipeImage = async(image) => {
     const response = await client
         .storage
         .from('recipe-images')
-        .upload(`${user.id}/${image.name}`,  image, {
+        .upload(`${user.id}/${image.name}`, image, {
             cacheControl: '3600',
             upsert: false
         });
