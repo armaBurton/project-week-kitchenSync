@@ -70,7 +70,6 @@ export const fetchAllRecipes = async() => {
         .from('recipes')
         .select();
 
-    console.log(response);
 
     return checkError(response);
 };

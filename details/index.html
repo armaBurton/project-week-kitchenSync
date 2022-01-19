@@ -4,33 +4,34 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <link rel="stylesheet" href="../styles/styles.css">
   <link rel="stylesheet" href="../styles/details.css">
   <title>Recipe Details</title>
 </head>
 <body>
     <header>
-      <div class="icon-logo">
-        <a class="go-home" href="../">
-          <img src="../assets/faucet.png" alt="" id="logo">
-          <p class="logo-type">kitchen<span class="sync">Sync</span></p>
-      </a>
-      </div>
-      <div class="user-div">
-        <p class="add-recipe" title="add recipe">➕</p>
-        <div class="login-status-div">
-            <div class="login-div visibility">
-                <button>sign-in</button>
-                <button>sign-up</button>
-            </div>
-            <div class="logged-in-div ">
-                <img class="profile-image" src="../assets/nick.png" alt="">
-                <div class="name-status">
-                    <p class="user-name">Saint Nick</p>
-                    <p class="user-rank">karma: <span class="points">9000+</span></p>
+        <div class="icon-logo">
+            <a class="go-home" href="../">
+            <img src="../assets/faucet.png" alt="" id="logo">
+            <p class="logo-type">kitchen<span class="sync">Sync</span></p>
+            </a>
+        </div>
+        <div class="user-div">
+            <p class="add-recipe" title="add recipe">➕</p>
+            <div class="login-status-div">
+                <div class="login-div visibility">
+                    <button>sign-in</button>
+                    <button>sign-up</button>
+                </div>
+                <div class="logged-in-div ">
+                    <img class="profile-image" src="../assets/nick.png" alt="">
+                    <div class="name-status">
+                        <p class="user-name">Saint Nick</p>
+                        <p class="user-rank">karma: <span class="points">9000+</span></p>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
     </header>
     <main>
@@ -48,33 +49,33 @@
               <img src="../assets/nick.png" alt="" class="user-img">
               <p class="created-at">Posted by u/User_name 17 hours ago</p>
             </div>
-                <div class="recipe-details-container">
-                    <h5 class="recipe-heading"></h5>
-                    <img src="../assets/well-foods-microbiome-superJumbo.jpg" alt="dish-img" class="dish-img">
-                    <p class="dish-description"></p>
-                    <div class="recipe-display-container">
-                        <div class="ingredients">
-                            <h3>Ingredients</h3>
-                            <ul>
-                                <li>1 cup flour</li>
-                                <li>1/2 cup milk</li>
-                                <li>1/4 cup sugar</li>
-                            </ul>
-                        </div>
-                        <div class="directions">
-                            <h3>Directions</h3>
-                            <ol>
-                                <li>frqwe</li>
-                                <li>ecwdc</li>
-                                <li>cdwcd</li>
-                            </ol>
-                        </div>
-                  </div>
-              </div>
+            <div class="recipe-details-container">
+                <h5 class="recipe-heading"></h5>
+                <img src="../assets/well-foods-microbiome-superJumbo.jpg" alt="dish-img" class="dish-img">
+                <p class="dish-description"></p>
+                <div class="recipe-display-container">
+                    <div class="ingredients">
+                        <h3>Ingredients</h3>
+                        <ul>
+                            <li>1 cup flour</li>
+                            <li>1/2 cup milk</li>
+                            <li>1/4 cup sugar</li>
+                        </ul>
+                    </div>
+                    <div class="directions">
+                        <h3>Directions</h3>
+                        <ol>
+                            <li>frqwe</li>
+                            <li>ecwdc</li>
+                            <li>cdwcd</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
           </div>
       </div>
       </section>
-      
+<!--       
       <section class="comments">
         <div class='comments-container'>
           <label class="comment-label">Comment
@@ -94,11 +95,13 @@
             <p class="arrow down">🡇</p>
           </div>
         </div>
-      </section>
+      </section> -->
 
     
 
     </main>
+    <!-- <script type="module" src="../script/script.js"></script> -->
+    <script type="module" src="./details.js"></script>
 </body>
 </html>
 
