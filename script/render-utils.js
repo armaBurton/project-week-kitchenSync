@@ -127,8 +127,11 @@ export async function renderRecipeDetails() {
     
     for (let ingredient of recipe.ingredients) {
         const listItem = document.createElement('li');
-        console.log(typeof ingredient, ...ingredient);
-        listItem.textContent = `${ingredient['quantity']} ${ingredient['name']} ${ingredient['prep']}`;
+        // const quantityItem = { ingredient };
+        // console.log(quantityItem);
+        const newObject = JSON.parse(ingredient);
+        console.log(newObject);
+        listItem.textContent = `${newObject.quantity} ${newObject.name} ${newObject.prep}`;
         ingredientsList.append(listItem);
     }
     ingredients.append(ingredientLabel, ingredientsList);
