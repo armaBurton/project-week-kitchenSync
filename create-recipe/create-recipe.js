@@ -38,13 +38,13 @@ recipeForm.addEventListener('submit', async(e) => {
 
     }
     const dishImg = form.get('dish-image');
-    // const user = await getUser();
+    const user = await getUser();
     const recipe = {
         name: dishName,
         ingredients: ingredientsArr,
         description,
         directions: directionsArr,
-        image: dishImg.name
+        image: `https://esjhwxqfmwrbnnyyxfav.supabase.in/storage/v1/object/public/recipe-images/${user.id}/${dishImg.name}`
     };
     await uploadRecipeImage(dishImg);
 

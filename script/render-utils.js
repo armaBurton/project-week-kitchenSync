@@ -87,7 +87,7 @@ export async function renderRecipes() {
         } else if (!recipe.image) {
             imgOrText.textContent = recipe.description;
         } else {
-            imgOrText.style.backgroundImage = '';
+            imgOrText.style.backgroundImage = `url('${recipe.image}')`;
         }
 
 
