@@ -1,5 +1,5 @@
 import { renderHeader } from '../script/render-utils.js';
-import { createRecipe, checkAuth, uploadRecipeImage } from '../script/fetch-utils.js';
+import { createRecipe, checkAuth, uploadRecipeImage, getUser } from '../script/fetch-utils.js';
 
 const newIngredientRowButton = document.getElementById('add-row-button');
 const ingredientsInputContainer = document.getElementById('ingredient-list-div');
@@ -38,14 +38,14 @@ recipeForm.addEventListener('submit', async(e) => {
 
     }
     const dishImg = form.get('dish-image');
-
+    const user = await getUser();
     console.log(dishImg);
     const recipe = {
         name: dishName,
         ingredients: ingredientsArr,
         description,
         directions: directionsArr,
-        image: dishImg.name
+        image: `https://esjhwxqfmwrbnnyyxfav.supabase.in/storage/v1/object/sign/recipe-images/${user.id}/${dishImg.name}`
     };
     await uploadRecipeImage(dishImg);
 

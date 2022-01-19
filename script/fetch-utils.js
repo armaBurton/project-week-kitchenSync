@@ -33,7 +33,7 @@ export async function checkAuth() {
 
 export async function redirectIfLoggedIn() {
     location.replace('./');
-    
+
 }
 
 export async function signupUser(email, password, username){
@@ -62,7 +62,6 @@ export async function logout() {
 }
 
 function checkError({ data, error }) {
-    console.trace();
     return error ? console.error(error) : data;
 }
 
@@ -190,26 +189,26 @@ export const uploadRecipeImage = async(image) => {
 
 // export const downloadRecipeImage = async(recipe) => {
 //     const user = await getUser();
-    
+
 //     console.log(recipe);
 //     const response = await client
 //         .storage
 //         .from(`recipe-images`)
 //         .download(`${user.id}/${recipe.image}`);
-        
+
 //     return checkError(response);
 // };
 
 
-export const downloadRecipeImage = async(recipe) => {
-    const user = await getUser();
+// export const downloadRecipeImage = async(recipe) => {
+//     const user = await getUser();
 
-    return await client.storage
-        .from('recipe-images')
-        .download(`${user.id}/${recipe.image}`)
-        .then(({ data, error }) => {
-            if (error) throw error;
-            // return URL.createObjectURL(data);
-            return data;
-        });
-}
+//     return await client.storage
+//         .from('recipe-images')
+//         .download(`${user.id}/${recipe.image}`)
+//         .then(({ data, error }) => {
+//             if (error) throw error;
+//             // return URL.createObjectURL(data);
+//             return data;
+//         });
+// };

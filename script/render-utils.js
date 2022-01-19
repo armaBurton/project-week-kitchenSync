@@ -1,4 +1,4 @@
-import { downloadRecipeImage, fetchAllRecipes, getUser } from './fetch-utils.js';
+import { fetchAllRecipes, getUser } from './fetch-utils.js';
 
 const loggedOutButtons = document.querySelector('.login-div');
 const loggedInButton = document.querySelector('.logged-in-div');
@@ -19,7 +19,7 @@ export async function renderRecipes() {
 
     const postCardsContainer = document.querySelector('.post-cards-container');
     postCardsContainer.textContent = '';
-    
+
     for (let recipe of recipes) {
         const postCardSection = document.createElement('section');
         postCardSection.classList.add('post-card');
@@ -49,45 +49,39 @@ export async function renderRecipes() {
         timeStamp.classList.add('created-at');
 
         userDiv.append(userImage, timeStamp);
-    
+
         const cardTitle = document.createElement('h3');
         cardTitle.classList.add('card-title');
-        
+
         const imgOrText = document.createElement('div');
         imgOrText.classList.add('img-or-text');
-        
-        const recipeImage = await downloadRecipeImage(recipe);
 
-       
-
-        
-
-        console.log(recipeImage);
+        // const recipeImage = await downloadRecipeImage(recipe);
 
         // const urlCreator = window.URL || window.webkitURL;
         // const blobConstructor = urlCreator.createObjectURL(recipeImage);
         // console.log(blobConstructor);
 
-        
+
         console.log(imgOrText);
-        
+
         // const newImgTest = document.createElement(`img`);
         // newImgTest.src = blobConstructor;
         // console.log(newImgTest);
-        
+
         // const url = URL.createObjectURL(blob)
-        let img = new Image();
-        
-        img.src = recipeImage;
-        imgOrText.append(img);
+        // let img = new Image();
+
+        // img.src = recipeImage;
+        // imgOrText.append(img);
         // img.onload = () => {
             //     URL.revokeObjectURL(recipeImage);
             //     resolve(img);
             // };
-            
-        const fileName = 'name.jpg';
-        console.log(img);
-        blobToFile(recipeImage, fileName);
+
+        // const fileName = 'name.jpg';
+        // console.log(img);
+        // blobToFile(recipeImage, fileName);
 
         if (!recipe.image && !recipe.description) {
             imgOrText.classList.add('nothing');
@@ -97,7 +91,7 @@ export async function renderRecipes() {
             imgOrText.style.backgroundImage = '';
         }
 
-    
+
         timeStamp.textContent = recipe.created_at;
         cardTitle.textContent = recipe.name;
         cardInner.append(userDiv, cardTitle, imgOrText);
