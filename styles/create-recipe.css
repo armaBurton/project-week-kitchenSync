@@ -98,6 +98,7 @@ textarea{
 
 .input-ingredient-row{
     width: 100%;
+    max-width: 960px;
     display: flex;
     justify-content: space-between;
     align-items: center;

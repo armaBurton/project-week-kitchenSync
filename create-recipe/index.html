@@ -42,7 +42,7 @@
             <form class="add-recipe-form" id="add-recipe-form">
                 <label class="dish-label">
                 Dish Name:
-                <input type="text" name="dish-name" class="wide-input">
+                <input type="text" name="dish-name" class="wide-input" >
                 </label>
                 <label class="description-label">
                 Description:
@@ -53,10 +53,20 @@
                 <div id="ingredient-list-div">
                     <div class="input-ingredient-row">
                         <input type="number" value="1" name="quantity-0" placeholder="quantity">
-                        <input type="text" name="name-0" placeholder="name">
-                        <input type="text" name="prep-0" placeholder="prep">
+                        <input type="text" name="name-0" placeholder="name" value="potato">
+                        <input type="text" name="prep-0" placeholder="prep" value="sliced">
                     </div>
-                    
+                    <div class="input-ingredient-row">
+                        <input type="number" value="1" name="quantity-0" placeholder="quantity">
+                        <input type="text" name="name-1" placeholder="name" value="cucumber">
+                        <input type="text" name="prep-1" placeholder="prep" value="chopped">
+                    </div>
+                    <div class="input-ingredient-row">
+                        <input type="number" value="1" name="quantity-0" placeholder="quantity">
+                        <input type="text" name="name-2" placeholder="name" value="onion">
+                        <input type="text" name="prep-2" placeholder="prep" value="chopped">
+                    </div>
+
                 </div>
                     <p class="add-row-button" id="add-row-button">➕</p>
                 </label>
@@ -64,22 +74,22 @@
                     Directions:
                     <div class="directions-container">
                         <div class="input-direction-row">
-                            <textarea type="text" name="name-0" placeholder="Step 1"></textarea>
+                            <textarea type="text" name="direction-name-0" placeholder="Step 1"></textarea>
                         </div>
                     </div>
-                    <p class="add-direction-row-button" id="add-direction-row-button">➕</p>
+                    <p class="add-row-button" id="add-direction-row-button">➕</p>
                 </label>
-                <label class="keywords">
+                <!-- <label class="keywords">
                     Keywords:
                     <input type="text" name="keywords" class="wide-input">
-                </label>
+                </label> -->
                 <div class="upload-image">
-                    <button>Upload Image</button>
-                    <p class="image-path">'./name-of-image.jpg'</p>
+                    Upload Image:
+                    <input type="file" accept="image/png, image/jpeg, image/jpg" id="upload-dish-image" name="dish-image">
                 </div>
                 <div class='right-align'>
-                    <button>Create Recipe</button>
-                    <button>Cancel</button>
+                    <button id="create-recipe-button">Create Recipe</button>
+                    <button id="cancel-button">Cancel</button>
                 </div>
             </form>
         </section>
