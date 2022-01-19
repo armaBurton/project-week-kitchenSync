@@ -1,4 +1,5 @@
-import { fetchAllRecipes, getUser } from './fetch-utils.js';
+
+import { fetchAllRecipes, getUser, fetchSingleRecipe } from './fetch-utils.js';
 
 const loggedOutButtons = document.querySelector('.login-div');
 const loggedInButton = document.querySelector('.logged-in-div');
@@ -40,6 +41,12 @@ export async function renderRecipes() {
 
         const cardInner = document.createElement('div');
         cardInner.classList.add('card-inner');
+        cardInner.addEventListener('click', async()=> {
+            location.replace(`../details/index.html?id=${recipe.id}`);
+            await renderRecipeDetails();
+        });
+
+
         const userDiv = document.createElement('div');
         userDiv.classList.add('user-div');
         const userImage = document.createElement('img');
@@ -56,32 +63,6 @@ export async function renderRecipes() {
         const imgOrText = document.createElement('div');
         imgOrText.classList.add('img-or-text');
 
-        // const recipeImage = await downloadRecipeImage(recipe);
-
-        // const urlCreator = window.URL || window.webkitURL;
-        // const blobConstructor = urlCreator.createObjectURL(recipeImage);
-        // console.log(blobConstructor);
-
-
-
-        // const newImgTest = document.createElement(`img`);
-        // newImgTest.src = blobConstructor;
-        // console.log(newImgTest);
-
-        // const url = URL.createObjectURL(blob)
-        // let img = new Image();
-
-        // img.src = recipeImage;
-        // imgOrText.append(img);
-        // img.onload = () => {
-            //     URL.revokeObjectURL(recipeImage);
-            //     resolve(img);
-            // };
-
-        // const fileName = 'name.jpg';
-        // console.log(img);
-        // blobToFile(recipeImage, fileName);
-
         if (!recipe.image && !recipe.description) {
             imgOrText.classList.add('nothing');
         } else if (!recipe.image) {
@@ -89,7 +70,6 @@ export async function renderRecipes() {
         } else {
             imgOrText.style.backgroundImage = `url('${recipe.image}')`;
         }
-
 
         timeStamp.textContent = recipe.created_at;
         cardTitle.textContent = recipe.name;
@@ -99,10 +79,78 @@ export async function renderRecipes() {
     }
 }
 
+export async function renderRecipeDetails() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    const recipe = await fetchSingleRecipe(id);
+    const recipeDetailsPage = document.querySelector('.right');
+    recipeDetailsPage.textContent = '';
+    const recipeName = document.querySelector('.detail-header');
+    recipeName.textContent = recipe.name;
 
-// function blobToFile(recipeImage, fileName){
-//         //A Blob() is almost a File() - it's just missing the two properties below which we will add
-//     recipeImage.lastModifiedDate = new Date();
-//     recipeImage.name = fileName;
-//     console.log(recipeImage);
-// }
+    const counter = document.querySelector('.counter');
+    counter.textContent = recipe.rating;
+    const userDiv = document.createElement('div');
+    userDiv.classList.add('user-div');
+
+    const userImage = document.createElement('img');
+    userImage.classList.add('user-img');
+    userImage.src = '../assets/nick.png';
+
+    const timeStamp = document.createElement('p');
+    timeStamp.classList.add('created-at');
+    timeStamp.textContent = recipe.created_at;
+
+    userDiv.append(userImage, timeStamp);
+
+    const detailsContainer = document.createElement('div');
+    detailsContainer.classList.add('recipe-details-container');
+
+    const foodImage = document.createElement('img');
+    foodImage.classList.add('dish-img');
+    foodImage.src = recipe.image;
+
+    const dishDescription = document.createElement('p');
+    dishDescription.classList.add('dish-description');
+    dishDescription.textContent = recipe.description;
+
+    const ingredientsContainer = document.createElement('div');
+    ingredientsContainer.classList.add('recipe-display-container');
+
+    const ingredients = document.createElement('div');
+    ingredients.classList.add('ingredients');
+
+    const ingredientLabel = document.createElement('h3');
+    ingredientLabel.textContent = 'Ingredients';
+
+    const ingredientsList = document.createElement('ul');
+    
+    for (let ingredient of recipe.ingredients) {
+        const listItem = document.createElement('li');
+        console.log(typeof ingredient, ...ingredient);
+        listItem.textContent = `${ingredient['quantity']} ${ingredient['name']} ${ingredient['prep']}`;
+        ingredientsList.append(listItem);
+    }
+    ingredients.append(ingredientLabel, ingredientsList);
+
+    const directions = document.createElement('div');
+    directions.classList.add('directions');
+
+    const directionLabel = document.createElement('h3');
+    directionLabel.textContent = 'Directions';
+
+    const directionsList = document.createElement('ol');
+    
+    for (let direction of recipe.directions) {
+        const listItem = document.createElement('li');
+        listItem.textContent = direction;
+        directionsList.append(listItem);
+    }
+    directions.append(directionLabel, directionsList);
+
+    ingredientsContainer.append(ingredients, directions);
+
+    detailsContainer.append(foodImage, dishDescription, ingredientsContainer);
+
+    recipeDetailsPage.append(userDiv, detailsContainer);
+}
