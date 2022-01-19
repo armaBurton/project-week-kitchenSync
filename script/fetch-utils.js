@@ -2,6 +2,8 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const SUPABASE_URL = 'https://esjhwxqfmwrbnnyyxfav.supabase.co';
 
+const imgClient = supabase;
+
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export const loggedOutButtons = document.querySelector('.login-div');
@@ -60,6 +62,7 @@ export async function logout() {
 }
 
 function checkError({ data, error }) {
+    console.trace();
     return error ? console.error(error) : data;
 }
 
@@ -172,4 +175,15 @@ export const deleteProfile = async() => {
     return checkError(response);
 };
 
-
+export const uploadRecipeImage = async(image) => {
+    const user = await getUser();
+    console.log(user);
+    const response = await client
+        .storage
+        .from('bucket-name')
+        .upload(`${user.id}/${image.name}`, image.name, {
+            cacheControl: '3600',
+            upsert: false
+        });
+    return checkError(response);
+};
