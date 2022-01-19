@@ -63,7 +63,6 @@ export async function renderRecipes() {
         // console.log(blobConstructor);
 
 
-        console.log(imgOrText);
 
         // const newImgTest = document.createElement(`img`);
         // newImgTest.src = blobConstructor;
@@ -101,9 +100,9 @@ export async function renderRecipes() {
 }
 
 
-function blobToFile(recipeImage, fileName){
-        //A Blob() is almost a File() - it's just missing the two properties below which we will add
-    recipeImage.lastModifiedDate = new Date();
-    recipeImage.name = fileName;
-    console.log(recipeImage);
-}
+// function blobToFile(recipeImage, fileName){
+//         //A Blob() is almost a File() - it's just missing the two properties below which we will add
+//     recipeImage.lastModifiedDate = new Date();
+//     recipeImage.name = fileName;
+//     console.log(recipeImage);
+// }

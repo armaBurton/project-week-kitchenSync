@@ -38,19 +38,20 @@ recipeForm.addEventListener('submit', async(e) => {
 
     }
     const dishImg = form.get('dish-image');
-    const user = await getUser();
-    console.log(dishImg);
+    // const user = await getUser();
     const recipe = {
         name: dishName,
         ingredients: ingredientsArr,
         description,
         directions: directionsArr,
-        image: `https://esjhwxqfmwrbnnyyxfav.supabase.in/storage/v1/object/sign/recipe-images/${user.id}/${dishImg.name}`
+        image: dishImg.name
     };
     await uploadRecipeImage(dishImg);
 
     await createRecipe(recipe);
     window.location.href = `../`;
+
+    // `https://esjhwxqfmwrbnnyyxfav.supabase.in/storage/v1/object/sign/recipe-images/${user.id}/${dishImg.name}`
 });
 
 newIngredientRowButton.addEventListener('click', () => {
