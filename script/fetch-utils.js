@@ -162,7 +162,6 @@ export const createRecipe = async(recipe) => {
 
 export const deleteProfile = async() => {
     const user = await getUserProfile();
-    console.log(user);
 
     const response = await client
         .from('profile')
@@ -176,7 +175,6 @@ export const deleteProfile = async() => {
 
 export const uploadRecipeImage = async(image) => {
     const user = await getUser();
-    console.log(user);
     const response = await client
         .storage
         .from('recipe-images')
