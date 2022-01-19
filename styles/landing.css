@@ -64,8 +64,11 @@
 
 .img-or-text{
     margin-top: 10px;
-    height: 250px;
-    background-color: white;
+    height: 350px;
+    background-position: center;
+    background-size: contain;
+    background-color: var(--light-red);
+    background-repeat: no-repeat;
     width: 100%;
 }
 
