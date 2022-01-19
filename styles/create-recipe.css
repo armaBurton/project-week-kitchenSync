@@ -104,3 +104,11 @@ textarea{
     align-items: center;
     gap: 10px;
 }
+
+.input-ingredient-row input{
+    margin-bottom: 10px;
+}
+
+.input-direction-row textarea{
+    margin-bottom: 10px;
+}
