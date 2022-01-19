@@ -2,6 +2,7 @@
     width: 960px;
     background-color: var(--light-grey);
     display: flex;
+    margin-bottom: 40px;
 }
 
 .side-bar{
@@ -153,3 +154,6 @@
     margin-bottom: 10px;
 }
 
+#add-recipe{
+    margin-right: 10px;
+}
