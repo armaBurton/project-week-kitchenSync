@@ -88,8 +88,6 @@ export const fetchSingleRecipe = async(id) => {
         .select()
         .match({ id })
         .single();
-    console.log(response);
-
     return checkError(response);
 };
 
