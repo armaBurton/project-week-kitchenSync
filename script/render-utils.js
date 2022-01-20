@@ -36,22 +36,23 @@ export async function renderRecipes() {
         arrowDownButton.textContent = '▼';
         arrowUpButton.textContent = '▲';
 
-        
+
         arrowDownButton.addEventListener('click', async() => {
             await decrementRecipeRating(recipe.id);
-            counterP.textContent = recipe.rating;
+            counterP.textContent = recipe.recipe_rating[0].rating;
             await renderRecipes();
             // await updateBool(recipe.id, true);
         });
-        
+
 
         arrowUpButton.addEventListener('click', async() => {
             await incrementRecipeRating(recipe.id);
-            counterP.textContent = recipe.rating;
+            counterP.textContent = recipe.recipe_rating[0].rating;
             await renderRecipes();
         });
 
-        counterP.textContent = recipe.rating;
+        console.log(recipe);
+        counterP.textContent = recipe.recipe_rating[0].rating;
 
         sidebarDiv.append(arrowUpButton, counterP, arrowDownButton);
 
@@ -185,7 +186,7 @@ export async function renderRecipeDetails() {
     recipeName.textContent = recipe.name;
 
     const counter = document.querySelector('.counter');
-    counter.textContent = recipe.rating;
+    counter.textContent = recipe.recipe_rating[0].rating;
     const userDiv = document.createElement('div');
     userDiv.classList.add('user-div');
 
@@ -222,13 +223,12 @@ export async function renderRecipeDetails() {
     ingredientLabel.textContent = 'Ingredients';
 
     const ingredientsList = document.createElement('ul');
-    
+
     for (let ingredient of recipe.ingredients) {
         const listItem = document.createElement('li');
         // const quantityItem = { ingredient };
         // console.log(quantityItem);
         const newObject = JSON.parse(ingredient);
-        console.log(newObject);
         listItem.textContent = `${newObject.quantity} ${newObject.name} ${newObject.prep}`;
         ingredientsList.append(listItem);
     }
@@ -241,7 +241,7 @@ export async function renderRecipeDetails() {
     directionLabel.textContent = 'Directions';
 
     const directionsList = document.createElement('ol');
-    
+
     for (let direction of recipe.directions) {
         const listItem = document.createElement('li');
         listItem.textContent = direction;
@@ -249,12 +249,14 @@ export async function renderRecipeDetails() {
     }
 
     directions.append(directionLabel, directionsList);
-    
+
     ingredientsContainer.append(ingredients, directions);
-    
+
     detailsContainer.append(foodImage, dishDescription, ingredientsContainer);
-    
+
     recipeDetailsPage.append(userDiv, detailsContainer);
 
 }
+
+
 
