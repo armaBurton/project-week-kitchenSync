@@ -50,13 +50,10 @@ recipeForm.addEventListener('submit', async(e) => {
 
     await createRecipe(recipe);
     window.location.href = `../`;
-
-    // `https://esjhwxqfmwrbnnyyxfav.supabase.in/storage/v1/object/sign/recipe-images/${user.id}/${dishImg.name}`
 });
 
 newIngredientRowButton.addEventListener('click', () => {
 
-    // const containerLength = ingredientsInputContainer.children.length;
     const ingredientObjectDiv = document.createElement('div');
     ingredientObjectDiv.classList.add('input-ingredient-row');
     for (let i = 0; i < ingredientsInputContainer.children.length; i++) {

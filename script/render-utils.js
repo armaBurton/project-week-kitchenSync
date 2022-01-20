@@ -1,5 +1,5 @@
 
-import { fetchAllRecipes, getUser, fetchSingleRecipe } from './fetch-utils.js';
+import { fetchAllRecipes, getUser, fetchSingleRecipe, decrementRecipeRating, incrementRecipeRating, updateBool } from './fetch-utils.js';
 
 const loggedOutButtons = document.querySelector('.login-div');
 const loggedInButton = document.querySelector('.logged-in-div');
@@ -35,6 +35,30 @@ export async function renderRecipes() {
 
         arrowDownButton.textContent = '▼';
         arrowUpButton.textContent = '▲';
+        
+        if (recipe.is_on) { 
+            arrowDownButton.addEventListener('click', async() => {
+                await incrementRecipeRating(recipe.id);
+                counterP.textContent = recipe.rating;
+                await renderRecipes();
+                await updateBool(recipe.id, false);
+            });
+        } else {
+            arrowDownButton.addEventListener('click', async() => {
+                await decrementRecipeRating(recipe.id);
+                counterP.textContent = recipe.rating;
+                await renderRecipes();
+                await updateBool(recipe.id, true);
+            });
+        }
+
+        arrowUpButton.addEventListener('click', async() => {
+            await incrementRecipeRating(recipe.id);
+            counterP.textContent = recipe.rating;
+            arrowUpButton.style.pointerEvents = 'none';
+            await renderRecipes();
+        });
+
         counterP.textContent = recipe.rating;
 
         sidebarDiv.append(arrowUpButton, counterP, arrowDownButton);
@@ -149,6 +173,25 @@ export async function renderRecipeDetails() {
         listItem.textContent = direction;
         directionsList.append(listItem);
     }
+
+    const upArrow = document.getElementById('up');
+    const downArrow = document.getElementById('down');
+
+    upArrow.addEventListener('click', async() => {
+        await incrementRecipeRating(recipe.id);
+        counter.textContent = recipe.rating;
+        upArrow.style.pointerEvents = 'none';
+        await renderRecipeDetails();
+    });
+    
+    downArrow.addEventListener('click', async() => {
+        console.trace();
+        await decrementRecipeRating(recipe.id);
+        counter.textContent = recipe.rating;
+        downArrow.style.pointerEvents = 'none';
+        await renderRecipeDetails();
+    });
+
     directions.append(directionLabel, directionsList);
 
     ingredientsContainer.append(ingredients, directions);
@@ -157,3 +200,4 @@ export async function renderRecipeDetails() {
 
     recipeDetailsPage.append(userDiv, detailsContainer);
 }
+
