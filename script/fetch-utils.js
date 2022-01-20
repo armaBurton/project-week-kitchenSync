@@ -199,7 +199,26 @@ export async function insertRecipeRatingRow(id){
         .from(`recipe_rating`)
         .insert({ recipe_id: id });
 
+    return checkError(response);
+}
 
+export async function getUserVote() {
+    const user = await getUser();
+    console.log(user);
+    const response = await client
+        .from('profile')
+        .select()
+        .match({ user_id: user.id })
+        .single();
+    console.log(response);
+    return checkError(response.data.vote);
+}
 
+export async function updateVote(voteObj) {
+    const user = await getUser();
+    const response = await client
+        .from('profile')
+        .update(voteObj)
+        .match({ user_id: user.user_id });
     return checkError(response);
 }
