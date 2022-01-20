@@ -85,9 +85,10 @@ export const fetchMyRecipes = async() => {
 export const fetchSingleRecipe = async(id) => {
     const response = await client
         .from('recipes')
-        .select()
+        .select(`*, recipe_rating (*)`)
         .match({ id })
         .single();
+
     return checkError(response);
 };
 
@@ -104,8 +105,10 @@ export const incrementRecipeRating = async(id) => {
     const recipe = await fetchSingleRecipe(id);
 
     const response = await client
-        .from('recipes')
-        .update({ rating: recipe.rating + 1 })
+        .from('recipe_rating')
+        .update({ 
+            rating: recipe.rating + 1
+        })
         .match({ id });
     
 
@@ -151,6 +154,10 @@ export const createRecipe = async(recipe) => {
         .insert(
             recipe
         );
+        
+    console.log(response.data[0]);
+    await insertRecipeRatingRow(response.data[0].id);
+
     return checkError(response);
 };
 
@@ -186,3 +193,14 @@ export const updateBool = async(id, bool) => {
         .match({ id });
     return checkError(response);
 };
+
+
+export async function insertRecipeRatingRow(id){
+    const response = await client
+        .from(`recipe_rating`)
+        .insert({ recipe_id: id });
+    
+    
+
+    return checkError(response);
+}
