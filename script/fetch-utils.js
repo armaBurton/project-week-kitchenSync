@@ -182,10 +182,9 @@ export const uploadRecipeImage = async(image) => {
 };
 
 export const updateBool = async(id, bool) => {
-    const response = client
+    const response = await client
         .from('recipes')
         .update({ is_on: bool })
         .match({ id });
-    console.log(response);
     return checkError(response);
 };
