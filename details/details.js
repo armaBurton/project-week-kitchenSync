@@ -1,5 +1,11 @@
-import { incrementRecipeRating, decrementRecipeRating, fetchSingleRecipe } from '../script/fetch-utils.js';
-import { renderRecipeDetails } from '../script/render-utils.js';
+import { 
+    incrementRecipeRating, 
+    decrementRecipeRating, 
+    fetchSingleRecipe,
+} from '../script/fetch-utils.js';
+import { 
+    renderRecipeDetails
+} from '../script/render-utils.js';
 
 renderRecipeDetails();
 const upArrow = document.getElementById('up');
