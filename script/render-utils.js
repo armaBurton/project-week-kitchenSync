@@ -1,5 +1,5 @@
 
-import { fetchAllRecipes, getUser, fetchSingleRecipe, decrementRecipeRating, incrementRecipeRating, updateBool } from './fetch-utils.js';
+import { fetchAllRecipes, fetchMyRecipes, getUser, fetchSingleRecipe, decrementRecipeRating, incrementRecipeRating, getUserProfile } from './fetch-utils.js';
 
 const loggedOutButtons = document.querySelector('.login-div');
 const loggedInButton = document.querySelector('.logged-in-div');
@@ -95,8 +95,88 @@ export async function renderRecipes() {
         postCardsContainer.append(postCardSection);
     }
 }
+export async function renderMyRecipes() {
+    const recipes = await fetchMyRecipes();
+
+    const postCardsContainer = document.querySelector('.post-cards-container');
+    postCardsContainer.textContent = '';
+
+    for (let recipe of recipes) {
+        const postCardSection = document.createElement('section');
+        postCardSection.classList.add('post-card');
+        const sidebarDiv = document.createElement('div');
+        sidebarDiv.classList.add('side-bar');
+        const arrowUpButton = document.createElement('p');
+        arrowUpButton.classList.add('arrow', 'up');
+        const arrowDownButton = document.createElement('p');
+        arrowDownButton.classList.add('arrow', 'down');
+        const counterP = document.createElement('p');
+        counterP.classList.add('counter');
+
+        arrowDownButton.textContent = '▼';
+        arrowUpButton.textContent = '▲';
+
+        
+        arrowDownButton.addEventListener('click', async() => {
+            await decrementRecipeRating(recipe.id);
+            counterP.textContent = recipe.rating;
+            await renderRecipes();
+            // await updateBool(recipe.id, true);
+        });
+        
+
+        arrowUpButton.addEventListener('click', async() => {
+            await incrementRecipeRating(recipe.id);
+            counterP.textContent = recipe.rating;
+            await renderRecipes();
+        });
+
+        counterP.textContent = recipe.rating;
+
+        sidebarDiv.append(arrowUpButton, counterP, arrowDownButton);
+
+        const cardInner = document.createElement('div');
+        cardInner.classList.add('card-inner');
+        cardInner.addEventListener('click', async()=> {
+            location.replace(`../details/index.html?id=${recipe.id}`);
+            await renderRecipeDetails();
+        });
+
+
+        const userDiv = document.createElement('div');
+        userDiv.classList.add('user-div');
+        const userImage = document.createElement('img');
+        userImage.classList.add('user-img');
+        userImage.src = '../assets/nick.png';
+        const timeStamp = document.createElement('p');
+        timeStamp.classList.add('created-at');
+
+        userDiv.append(userImage, timeStamp);
+
+        const cardTitle = document.createElement('h3');
+        cardTitle.classList.add('card-title');
+
+        const imgOrText = document.createElement('div');
+        imgOrText.classList.add('img-or-text');
+
+        if (!recipe.image && !recipe.description) {
+            imgOrText.classList.add('nothing');
+        } else if (!recipe.image) {
+            imgOrText.textContent = recipe.description;
+        } else {
+            imgOrText.style.backgroundImage = `url('${recipe.image}')`;
+        }
+
+        timeStamp.textContent = recipe.created_at;
+        cardTitle.textContent = recipe.name;
+        cardInner.append(userDiv, cardTitle, imgOrText);
+        postCardSection.append(sidebarDiv, cardInner);
+        postCardsContainer.append(postCardSection);
+    }
+}
 
 export async function renderRecipeDetails() {
+    const user = await getUserProfile();
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     const recipe = await fetchSingleRecipe(id);
@@ -115,10 +195,12 @@ export async function renderRecipeDetails() {
     userImage.src = '../assets/nick.png';
 
     const timeStamp = document.createElement('p');
+    const userName = document.createElement('p');
+    userName.textContent = user.username;
     timeStamp.classList.add('created-at');
     timeStamp.textContent = recipe.created_at;
 
-    userDiv.append(userImage, timeStamp);
+    userDiv.append(userImage, userName, timeStamp);
 
     const detailsContainer = document.createElement('div');
     detailsContainer.classList.add('recipe-details-container');

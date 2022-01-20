@@ -4,9 +4,8 @@ import {
     signupUser,
     getUser,
     logout,
-    decrementRecipeRating,
 } from './fetch-utils.js';
-import { renderHeader } from './render-utils.js';
+import { renderHeader, renderMyRecipes, renderRecipes } from './render-utils.js';
 
 
 const signUpButton = document.querySelector('#sign-up-button');
@@ -32,6 +31,11 @@ const loggedOutButtons = document.querySelector('.login-div');
 const loggedInButton = document.querySelector('.logged-in-div');
 
 const createRecipeButton = document.getElementById('create-recipe');
+
+const myrecipesBtn = document.getElementById('my-recipes');
+const allRecipesBtn = document.getElementById('all-recipes');
+allRecipesBtn.classList.add('visibility');
+
 // redirectIfLoggedIn();
 
 renderHeader();
@@ -97,3 +101,16 @@ createRecipeButton.addEventListener('click', async() => {
     }
 
 });
+
+myrecipesBtn.addEventListener('click', async() => {
+    await renderMyRecipes();
+    myrecipesBtn.classList.add('visibility');
+    allRecipesBtn.classList.remove('visibility');
+});
+
+allRecipesBtn.addEventListener('click', async() => {
+    await renderRecipes();
+    myrecipesBtn.classList.remove('visibility');
+    allRecipesBtn.classList.add('visibility');
+});
+

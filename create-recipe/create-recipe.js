@@ -1,5 +1,5 @@
 import { renderHeader } from '../script/render-utils.js';
-import { createRecipe, checkAuth, uploadRecipeImage, getUser } from '../script/fetch-utils.js';
+import { createRecipe, checkAuth, uploadRecipeImage, getUser, logout } from '../script/fetch-utils.js';
 
 const newIngredientRowButton = document.getElementById('add-row-button');
 const ingredientsInputContainer = document.getElementById('ingredient-list-div');
@@ -7,7 +7,10 @@ const ingredientsInputContainer = document.getElementById('ingredient-list-div')
 const recipeForm = document.getElementById('add-recipe-form');
 const cancelButton = document.getElementById('cancel-button');
 
+const logoutButton = document.querySelector('#logout-button');
+
 checkAuth();
+renderHeader();
 
 cancelButton.addEventListener('click', () => {
     window.location.href = `../`;
@@ -98,4 +101,8 @@ addDirectionRowButton.addEventListener(`click`, () => {
         inputDirectionRow.append(directionText);
     }
     inputDirectionRowContainer.append(inputDirectionRow);
+});
+
+logoutButton.addEventListener('click', async() => {
+    await logout();
 });

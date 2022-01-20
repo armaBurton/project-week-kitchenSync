@@ -13,10 +13,11 @@ export const getUser = () => {
 };
 
 export const getUserProfile = async() => {
-
+    const user = getUser();
     const response = await client
         .from('profile')
         .select()
+        .match({ user_id: user.id })
         .single();
 
     return checkError(response);
@@ -78,8 +79,7 @@ export const fetchMyRecipes = async() => {
         .from('recipes')
         .select()
         .match({ user_id: user.id });
-
-    checkError(myrecipes);
+    return checkError(myrecipes);
 };
 
 export const fetchSingleRecipe = async(id) => {
@@ -193,12 +193,10 @@ export const updateBool = async(id, bool) => {
     return checkError(response);
 };
 
-
 export async function insertRecipeRatingRow(id){
     const response = await client
         .from(`recipe_rating`)
         .insert({ recipe_id: id });
-
     return checkError(response);
 }
 
