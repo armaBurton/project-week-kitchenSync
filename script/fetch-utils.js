@@ -66,7 +66,7 @@ function checkError({ data, error }) {
 export const fetchAllRecipes = async() => {
     const response = await client
         .from('recipes')
-        .select();
+        .select('*, recipe_rating (*)');
 
 
     return checkError(response);
@@ -88,7 +88,6 @@ export const fetchSingleRecipe = async(id) => {
         .select(`*, recipe_rating (*)`)
         .match({ id })
         .single();
-
     return checkError(response);
 };
 
@@ -106,11 +105,11 @@ export const incrementRecipeRating = async(id) => {
 
     const response = await client
         .from('recipe_rating')
-        .update({ 
-            rating: recipe.rating + 1
+        .update({
+            rating: recipe.recipe_rating[0].rating + 1
         })
-        .match({ id });
-    
+        .match({ recipe_id: id });
+
 
     return checkError(response);
 };
@@ -119,9 +118,9 @@ export const decrementRecipeRating = async(id) => {
     const recipe = await fetchSingleRecipe(id);
 
     const response = await client
-        .from('recipes')
-        .update({ rating: recipe.rating - 1 })
-        .match({ id });
+        .from('recipe_rating')
+        .update({ rating: recipe.recipe_rating[0].rating - 1 })
+        .match({ recipe_id: id });
 
     return checkError(response);
 };
@@ -154,7 +153,7 @@ export const createRecipe = async(recipe) => {
         .insert(
             recipe
         );
-        
+
     console.log(response.data[0]);
     await insertRecipeRatingRow(response.data[0].id);
 
@@ -199,8 +198,8 @@ export async function insertRecipeRatingRow(id){
     const response = await client
         .from(`recipe_rating`)
         .insert({ recipe_id: id });
-    
-    
+
+
 
     return checkError(response);
 }
