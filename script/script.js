@@ -4,6 +4,7 @@ import {
     signupUser,
     getUser,
     logout,
+    decrementRecipeRating,
 } from './fetch-utils.js';
 import { renderHeader } from './render-utils.js';
 
@@ -34,6 +35,7 @@ const createRecipeButton = document.getElementById('create-recipe');
 // redirectIfLoggedIn();
 
 renderHeader();
+
 
 switchModalButton.addEventListener('click', () => {
     signInDisplay.classList.add('visibility');

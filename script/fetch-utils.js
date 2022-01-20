@@ -2,8 +2,6 @@ const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZ
 
 const SUPABASE_URL = 'https://esjhwxqfmwrbnnyyxfav.supabase.co';
 
-const imgClient = supabase;
-
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 export const loggedOutButtons = document.querySelector('.login-div');
@@ -81,8 +79,6 @@ export const fetchMyRecipes = async() => {
         .select()
         .match({ user_id: user.id });
 
-    // console.log(myrecipes);
-
     checkError(myrecipes);
 };
 
@@ -113,6 +109,7 @@ export const incrementRecipeRating = async(id) => {
         .from('recipes')
         .update({ rating: recipe.rating + 1 })
         .match({ id });
+    
 
     return checkError(response);
 };
@@ -184,28 +181,11 @@ export const uploadRecipeImage = async(image) => {
     return checkError(response);
 };
 
-// export const downloadRecipeImage = async(recipe) => {
-//     const user = await getUser();
-
-//     console.log(recipe);
-//     const response = await client
-//         .storage
-//         .from(`recipe-images`)
-//         .download(`${user.id}/${recipe.image}`);
-
-//     return checkError(response);
-// };
-
-
-// export const downloadRecipeImage = async(recipe) => {
-//     const user = await getUser();
-
-//     return await client.storage
-//         .from('recipe-images')
-//         .download(`${user.id}/${recipe.image}`)
-//         .then(({ data, error }) => {
-//             if (error) throw error;
-//             // return URL.createObjectURL(data);
-//             return data;
-//         });
-// };
+export const updateBool = async(id, bool) => {
+    const response = client
+        .from('recipes')
+        .update({ is_on: bool })
+        .match({ id });
+    console.log(response);
+    return checkError(response);
+};
