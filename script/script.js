@@ -49,7 +49,6 @@ logoutButton.addEventListener('click', async() => {
 });
 
 signUpButton.addEventListener('click', () => {
-    console.log('im inside signup');
     signUpDisplay.classList.remove('visibility');
 });
 
@@ -95,7 +94,6 @@ createRecipeButton.addEventListener('click', async() => {
     } else {
         signInDisplay.classList.remove('visibility');
         renderHeader();
-        // alert('sign in to add a recipe');
     }
 
 });

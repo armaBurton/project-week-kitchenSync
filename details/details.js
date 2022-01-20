@@ -8,11 +8,6 @@ const counter = document.querySelector('.counter');
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
-
-
-
-
-
 upArrow.addEventListener('click', async() => {
     const recipe = await fetchSingleRecipe(id);
     await incrementRecipeRating(recipe.id);
@@ -27,4 +22,3 @@ downArrow.addEventListener('click', async() => {
     await renderRecipeDetails();
 });
 
-incrementRecipeRating;

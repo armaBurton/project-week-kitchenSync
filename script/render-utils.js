@@ -166,10 +166,6 @@ export async function renderRecipeDetails() {
         directionsList.append(listItem);
     }
 
-    const upArrow = document.getElementById('up');
-    const downArrow = document.getElementById('down');
-
-    
     directions.append(directionLabel, directionsList);
     
     ingredientsContainer.append(ingredients, directions);
@@ -178,16 +174,5 @@ export async function renderRecipeDetails() {
     
     recipeDetailsPage.append(userDiv, detailsContainer);
 
-    // upArrow.addEventListener('click', async() => {
-    //     await incrementRecipeRating(recipe.id);
-    //     counter.textContent = recipe.rating;
-    //     // await renderRecipeDetails();
-    // });
-    
-    // downArrow.addEventListener('click', async() => {
-    //     await decrementRecipeRating(recipe.id);
-    //     counter.textContent = recipe.rating;
-    //     await renderRecipeDetails();
-    // });
 }
 
