@@ -177,17 +177,17 @@ export async function renderRecipeDetails() {
     detailsContainer.append(foodImage, dishDescription, ingredientsContainer);
     
     recipeDetailsPage.append(userDiv, detailsContainer);
+
+    // upArrow.addEventListener('click', async() => {
+    //     await incrementRecipeRating(recipe.id);
+    //     counter.textContent = recipe.rating;
+    //     // await renderRecipeDetails();
+    // });
     
-    upArrow.addEventListener('click', async() => {
-        await incrementRecipeRating(recipe.id);
-        counter.textContent = recipe.rating;
-        // await renderRecipeDetails();
-    });
-    
-    downArrow.addEventListener('click', async() => {
-        await decrementRecipeRating(recipe.id);
-        counter.textContent = recipe.rating;
-        await renderRecipeDetails();
-    });
+    // downArrow.addEventListener('click', async() => {
+    //     await decrementRecipeRating(recipe.id);
+    //     counter.textContent = recipe.rating;
+    //     await renderRecipeDetails();
+    // });
 }
 
