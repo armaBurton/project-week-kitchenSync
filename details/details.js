@@ -1,9 +1,9 @@
-import { 
-    incrementRecipeRating, 
-    decrementRecipeRating, 
+import {
+    incrementRecipeRating,
+    decrementRecipeRating,
     fetchSingleRecipe,
 } from '../script/fetch-utils.js';
-import { 
+import {
     renderRecipeDetails
 } from '../script/render-utils.js';
 
@@ -17,14 +17,15 @@ const id = params.get('id');
 upArrow.addEventListener('click', async() => {
     const recipe = await fetchSingleRecipe(id);
     await incrementRecipeRating(recipe.id);
-    counter.textContent = recipe.rating;
+    counter.textContent = recipe.recipe_rating[0].rating;
     await renderRecipeDetails();
+    console.log(recipe.recipe_rating[0].rating);
 });
 
 downArrow.addEventListener('click', async() => {
     const recipe = await fetchSingleRecipe(id);
     await decrementRecipeRating(recipe.id);
-    counter.textContent = recipe.rating;
+    counter.textContent = recipe.recipe_rating[0].rating;
     await renderRecipeDetails();
 });
 
