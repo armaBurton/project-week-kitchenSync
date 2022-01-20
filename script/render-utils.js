@@ -1,5 +1,5 @@
 
-import { fetchAllRecipes, fetchMyRecipes, getUser, fetchSingleRecipe, decrementRecipeRating, incrementRecipeRating, updateBool } from './fetch-utils.js';
+import { fetchAllRecipes, fetchMyRecipes, getUser, fetchSingleRecipe, decrementRecipeRating, incrementRecipeRating, getUserProfile } from './fetch-utils.js';
 
 const loggedOutButtons = document.querySelector('.login-div');
 const loggedInButton = document.querySelector('.logged-in-div');
@@ -175,6 +175,7 @@ export async function renderMyRecipes() {
 }
 
 export async function renderRecipeDetails() {
+    const user = await getUserProfile();
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     const recipe = await fetchSingleRecipe(id);
@@ -193,10 +194,12 @@ export async function renderRecipeDetails() {
     userImage.src = '../assets/nick.png';
 
     const timeStamp = document.createElement('p');
+    const userName = document.createElement('p');
+    userName.textContent = user.username;
     timeStamp.classList.add('created-at');
     timeStamp.textContent = recipe.created_at;
 
-    userDiv.append(userImage, timeStamp);
+    userDiv.append(userImage, userName, timeStamp);
 
     const detailsContainer = document.createElement('div');
     detailsContainer.classList.add('recipe-details-container');

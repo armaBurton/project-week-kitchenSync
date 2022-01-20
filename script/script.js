@@ -4,7 +4,6 @@ import {
     signupUser,
     getUser,
     logout,
-    decrementRecipeRating,
 } from './fetch-utils.js';
 import { renderHeader, renderMyRecipes, renderRecipes } from './render-utils.js';
 

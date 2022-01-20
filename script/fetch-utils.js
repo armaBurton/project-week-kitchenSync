@@ -13,10 +13,11 @@ export const getUser = () => {
 };
 
 export const getUserProfile = async() => {
-
+    const user = getUser();
     const response = await client
         .from('profile')
         .select()
+        .match({ user_id: user.id })
         .single();
 
     return checkError(response);
