@@ -112,5 +112,7 @@ allRecipesBtn.addEventListener('click', async() => {
     await renderRecipes();
     myrecipesBtn.classList.remove('visibility');
     allRecipesBtn.classList.add('visibility');
+    // myrecipesBtn.style.position = `relative`;
+    // myrecipesBtn.style.left = `-100px`;
 });
 

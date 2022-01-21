@@ -12,11 +12,16 @@
   cursor: pointer;
 }
 
+.dev:hover{
+  background-color: var(--light-grey);
+}
+
 .dev-image {
   width: 250px;
   height: 250px;
   object-fit: cover;
   border-radius: 50%;
+  border: 1px solid var(--dark-red);
 }
 
 main {
