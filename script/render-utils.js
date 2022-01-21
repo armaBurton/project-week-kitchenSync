@@ -68,7 +68,7 @@ export async function renderRecipes() {
         userDiv.classList.add('user-div');
         const userImage = document.createElement('img');
         userImage.classList.add('user-img');
-        userImage.src = '../assets/nick.png';
+        userImage.src = './assets/nick.png';
         const timeStamp = document.createElement('p');
         timeStamp.classList.add('created-at');
 
