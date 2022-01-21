@@ -34,7 +34,8 @@ const createRecipeButton = document.getElementById('create-recipe');
 
 const myrecipesBtn = document.getElementById('my-recipes');
 const allRecipesBtn = document.getElementById('all-recipes');
-allRecipesBtn.classList.add('visibility');
+console.log(allRecipesBtn);
+// allRecipesBtn.classList.add('visibility');
 
 // redirectIfLoggedIn();
 
