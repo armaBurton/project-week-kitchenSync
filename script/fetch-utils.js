@@ -154,8 +154,9 @@ export const createRecipe = async(recipe) => {
             recipe
         );
 
-    console.log(response.data[0]);
-    await insertRecipeRatingRow(response.data[0].id);
+    const single = await fetchSingleRecipe(response.data[0].id);
+    console.log(single);
+    await insertRecipeRatingRow(single.id);
 
     return checkError(response);
 };

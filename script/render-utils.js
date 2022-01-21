@@ -17,7 +17,7 @@ export const renderHeader = async() => {
 
 export async function renderRecipes() {
     const recipes = await fetchAllRecipes();
-
+    console.log(recipes);
     const postCardsContainer = document.querySelector('.post-cards-container');
     postCardsContainer.textContent = '';
 
@@ -59,7 +59,7 @@ export async function renderRecipes() {
         const cardInner = document.createElement('div');
         cardInner.classList.add('card-inner');
         cardInner.addEventListener('click', async()=> {
-            location.replace(`../details/index.html?id=${recipe.id}`);
+            location.replace(`./details/index.html?id=${recipe.id}`);
             await renderRecipeDetails();
         });
 
