@@ -84,7 +84,7 @@ export async function renderRecipes() {
 
         if (!recipe.image && !recipe.description) {
             imgOrText.classList.add('nothing');
-        } else if (!recipe.image) {
+        } else if (recipe.description) {
             imgOrText.textContent = recipe.description;
         } else {
             imgOrText.style.backgroundImage = `url('${recipe.image}')`;
@@ -141,7 +141,7 @@ export async function renderMyRecipes() {
         const cardInner = document.createElement('div');
         cardInner.classList.add('card-inner');
         cardInner.addEventListener('click', async()=> {
-            location.replace(`../details/index.html?id=${recipe.id}`);
+            location.replace(`./details/index.html?id=${recipe.id}`);
             await renderRecipeDetails();
         });
 
@@ -150,7 +150,7 @@ export async function renderMyRecipes() {
         userDiv.classList.add('user-div');
         const userImage = document.createElement('img');
         userImage.classList.add('user-img');
-    
+
         userImage.src = './assets/nick.png';
         const timeStamp = document.createElement('p');
         timeStamp.classList.add('created-at');
@@ -167,7 +167,8 @@ export async function renderMyRecipes() {
             imgOrText.classList.add('nothing');
         } else if (recipe.description) {
             imgOrText.textContent = recipe.description;
-        } else {
+            imgOrText.classList.add('img-or-text-without-img');
+        } else if (recipe.image && !recipe.description){
             imgOrText.style.backgroundImage = `url('${recipe.image}')`;
         }
 
@@ -200,7 +201,8 @@ export async function renderRecipeDetails() {
 
     const timeStamp = document.createElement('p');
     const userName = document.createElement('p');
-    userName.textContent = user.username;
+    const name = await getUserProfile(recipe.user_id);
+    userName.textContent = name.username;
     timeStamp.classList.add('created-at');
     timeStamp.textContent = recipe.created_at;
 

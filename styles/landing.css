@@ -65,12 +65,27 @@
 .img-or-text{
     margin-top: 10px;
     height: 350px;
+    /* height: auto; */
     background-position: center;
     background-size: contain;
     background-color: var(--light-red);
     background-repeat: no-repeat;
     width: 100%;
+    padding: 10px;
 }
+
+.img-or-text-without-img{
+    margin-top: 10px;
+    height: auto;
+    background-position: center;
+    background-size: contain;
+    background-color: var(--light-red);
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 10px;
+}
+
+
 
 .nothing{
     height: 0;

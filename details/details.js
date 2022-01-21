@@ -31,30 +31,7 @@ const id = params.get('id');
 
 
 upArrow.addEventListener('click', async() => {
-    // const vote = await getUserVote();
-    // console.log(vote);
     const recipe = await fetchSingleRecipe(id);
-    // const voteObj = {
-    //     recipe: recipe.id,
-    //     upVote: false,
-    //     downVote: false
-    // };
-    // let isInArr = false;
-    // for (let v of vote) {
-    //     if (v.recipe === id) {
-    //         isInArr = true;
-    //         if (v.upVote) {
-    //             v.upVote = false;
-    //         } else {
-    //             v.upVote = true;
-    //             v.downVote = false;
-    //         }
-    //     }
-    // }
-    // if (!isInArr) {
-    //     vote.push(voteObj);
-    // }
-    // updateVote(vote);
 
     await incrementRecipeRating(recipe.id);
     counter.textContent = recipe.recipe_rating[0].rating;
@@ -87,3 +64,26 @@ logoutButton.addEventListener('click', async() => {
     loggedOutButtons.classList.add('visibility');
 });
 
+// const voteObj = {
+// const vote = await getUserVote();
+// console.log(vote);
+//     recipe: recipe.id,
+//     upVote: false,
+//     downVote: false
+// };
+// let isInArr = false;
+// for (let v of vote) {
+//     if (v.recipe === id) {
+//         isInArr = true;
+//         if (v.upVote) {
+//             v.upVote = false;
+//         } else {
+//             v.upVote = true;
+//             v.downVote = false;
+//         }
+//     }
+// }
+// if (!isInArr) {
+//     vote.push(voteObj);
+// }
+// updateVote(vote);
