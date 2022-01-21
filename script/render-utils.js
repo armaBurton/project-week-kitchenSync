@@ -116,14 +116,14 @@ export async function renderMyRecipes() {
         arrowDownButton.textContent = '▼';
         arrowUpButton.textContent = '▲';
 
-        
+
         arrowDownButton.addEventListener('click', async() => {
             await decrementRecipeRating(recipe.id);
             counterP.textContent = recipe.rating;
             await renderRecipes();
             // await updateBool(recipe.id, true);
         });
-        
+
 
         arrowUpButton.addEventListener('click', async() => {
             await incrementRecipeRating(recipe.id);

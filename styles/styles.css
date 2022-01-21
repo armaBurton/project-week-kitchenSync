@@ -152,6 +152,16 @@ button{
     border: 1px solid var(--dark-red);
 }
 
+#list-buttons {
+    width: 960px;
+}
+
+#my-recipes, #all-recipes {
+    position: relative;
+    left: 0;
+    margin: 0;
+}
+
 .add-recipe{
     cursor: pointer;
 }
