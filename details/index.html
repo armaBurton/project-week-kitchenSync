@@ -13,22 +13,24 @@
     <header>
         <div class="icon-logo">
             <a class="go-home" href="../">
-            <img src="../assets/faucet.png" alt="" id="logo">
-            <p class="logo-type">kitchen<span class="sync">Sync</span></p>
+                <img src="../assets/faucet.png" alt="" id="logo">
+                <p class="logo-type">kitchen<span class="sync">Sync</span></p>
             </a>
         </div>
         <div class="user-div">
-            <p class="add-recipe" title="add recipe">➕</p>
+                <p id="add-recipe">Add Recipe:</p> 
+                <p class="add-recipe" title="add recipe" id="create-recipe" style="text-align: right;">➕</p>
+
             <div class="login-status-div">
-                <div class="login-div visibility">
-                    <button>sign-in</button>
-                    <button>sign-up</button>
+                <div class="login-div">
+                    <button id="sign-in-button">sign-in</button>
+                    <button id="sign-up-button">sign-up</button>
                 </div>
-                <div class="logged-in-div ">
+                <div class="logged-in-div visibility">
                     <img class="profile-image" src="../assets/nick.png" alt="">
                     <div class="name-status">
                         <p class="user-name">Saint Nick</p>
-                        <p class="user-rank">karma: <span class="points">9000+</span></p>
+                        <button id="logout-button">Log Out</button>
                     </div>
                 </div>
             </div>
@@ -101,6 +103,7 @@
     </main>
     <!-- <script type="module" src="../script/script.js"></script> -->
     <script type="module" src="./details.js"></script>
+    <!-- <script type="module" src="./renderHeader.js"></script> -->
 </body>
 </html>
 

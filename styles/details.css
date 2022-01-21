@@ -13,6 +13,7 @@ html{
     display: flex;
     flex-direction: row;
     align-items: center;
+    color: var(--light-red);
     justify-content: space-between;
     padding: 0 50px;
     height: 50px;
@@ -197,11 +198,6 @@ ul, ol{
   color: var(--light-grey);
   font-size: .75rem;
   line-height: 0;
-  cursor: pointer;
-}
-
-.created-at:hover{
-  color: var(--red);
 }
 
 .created-at-comments{
