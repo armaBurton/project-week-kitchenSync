@@ -143,7 +143,7 @@ button:hover{
 }
 
 button{
-    margin-top: 20px;
+    /* margin-top: 20px; */
     width: 100px;
     background-color: var(--light-red);
     color: var(--dark-red);
@@ -152,14 +152,37 @@ button{
     border: 1px solid var(--dark-red);
 }
 
-#list-buttons {
-    width: 960px;
+#list-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 960px;;
+}
+
+header{
+    z-index: 9999;
 }
 
 #my-recipes, #all-recipes {
     position: relative;
     left: 0;
     margin: 0;
+}
+
+#all-recipes{
+    position: relative;
+    left:-100px;
+}
+
+#my-recipes{
+    position: relative;
+    left: 60;
+    z-index: 10;
+}
+
+#about-page-button{
+    position: relative;
+    left:-95px;
 }
 
 .add-recipe{

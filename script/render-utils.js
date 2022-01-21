@@ -51,7 +51,6 @@ export async function renderRecipes() {
             await renderRecipes();
         });
 
-        console.log(recipe);
         counterP.textContent = recipe.recipe_rating[0].rating;
 
         sidebarDiv.append(arrowUpButton, counterP, arrowDownButton);
@@ -115,23 +114,24 @@ export async function renderMyRecipes() {
 
         arrowDownButton.textContent = '▼';
         arrowUpButton.textContent = '▲';
-
+        console.log(recipe);
 
         arrowDownButton.addEventListener('click', async() => {
             await decrementRecipeRating(recipe.id);
-            counterP.textContent = recipe.rating;
-            await renderRecipes();
+            counterP.textContent = recipe.recipe_rating[0].rating;
+            await renderMyRecipes();
             // await updateBool(recipe.id, true);
         });
 
 
         arrowUpButton.addEventListener('click', async() => {
             await incrementRecipeRating(recipe.id);
-            counterP.textContent = recipe.rating;
-            await renderRecipes();
+            counterP.textContent = recipe.recipe_rating[0].rating;
+            await renderMyRecipes();
         });
 
-        counterP.textContent = recipe.rating;
+        console.log(recipe.recipe_rating.rating);
+        counterP.textContent = recipe.recipe_rating[0].rating;
 
         sidebarDiv.append(arrowUpButton, counterP, arrowDownButton);
 

@@ -77,7 +77,7 @@ export const fetchMyRecipes = async() => {
     const user = getUser();
     const myrecipes = await client
         .from('recipes')
-        .select()
+        .select('*, recipe_rating (*)')
         .match({ user_id: user.id });
     return checkError(myrecipes);
 };
