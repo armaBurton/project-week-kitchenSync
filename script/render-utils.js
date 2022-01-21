@@ -150,7 +150,8 @@ export async function renderMyRecipes() {
         userDiv.classList.add('user-div');
         const userImage = document.createElement('img');
         userImage.classList.add('user-img');
-        userImage.src = '../assets/nick.png';
+    
+        userImage.src = './assets/nick.png';
         const timeStamp = document.createElement('p');
         timeStamp.classList.add('created-at');
 
@@ -161,10 +162,10 @@ export async function renderMyRecipes() {
 
         const imgOrText = document.createElement('div');
         imgOrText.classList.add('img-or-text');
-
+        // console.log(recipe.image, recipe.description);
         if (!recipe.image && !recipe.description) {
             imgOrText.classList.add('nothing');
-        } else if (!recipe.image) {
+        } else if (recipe.description) {
             imgOrText.textContent = recipe.description;
         } else {
             imgOrText.style.backgroundImage = `url('${recipe.image}')`;
@@ -210,6 +211,7 @@ export async function renderRecipeDetails() {
 
     const foodImage = document.createElement('img');
     foodImage.classList.add('dish-img');
+    foodImage.setAttribute('alt', 'Image how good this dish is gonna taste');
     foodImage.src = recipe.image;
 
     const dishDescription = document.createElement('p');
