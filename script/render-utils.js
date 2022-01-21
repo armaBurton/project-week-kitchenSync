@@ -68,7 +68,7 @@ export async function renderRecipes() {
         userDiv.classList.add('user-div');
         const userImage = document.createElement('img');
         userImage.classList.add('user-img');
-        userImage.src = '../assets/nick.png';
+        userImage.src = './assets/nick.png';
         const timeStamp = document.createElement('p');
         timeStamp.classList.add('created-at');
 
@@ -116,14 +116,14 @@ export async function renderMyRecipes() {
         arrowDownButton.textContent = '▼';
         arrowUpButton.textContent = '▲';
 
-        
+
         arrowDownButton.addEventListener('click', async() => {
             await decrementRecipeRating(recipe.id);
             counterP.textContent = recipe.rating;
             await renderRecipes();
             // await updateBool(recipe.id, true);
         });
-        
+
 
         arrowUpButton.addEventListener('click', async() => {
             await incrementRecipeRating(recipe.id);
