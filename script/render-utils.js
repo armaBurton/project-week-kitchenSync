@@ -82,12 +82,15 @@ export async function renderRecipes() {
         const imgOrText = document.createElement('div');
         imgOrText.classList.add('img-or-text');
 
-        if (!recipe.image && !recipe.description) {
-            imgOrText.classList.add('nothing');
-        } else if (recipe.description) {
+        // if (!recipe.image && !recipe.description) {
+        //     imgOrText.classList.add('nothing');
+        if (recipe.description && !recipe.image) {
             imgOrText.textContent = recipe.description;
-        } else {
+            imgOrText.classList.add('img-or-text-without-img');
+        } else if (recipe.image) {
             imgOrText.style.backgroundImage = `url('${recipe.image}')`;
+        } else {
+            imgOrText.classList.add('nothing');
         }
 
         timeStamp.textContent = recipe.created_at;
@@ -163,13 +166,13 @@ export async function renderMyRecipes() {
         const imgOrText = document.createElement('div');
         imgOrText.classList.add('img-or-text');
         // console.log(recipe.image, recipe.description);
-        if (!recipe.image && !recipe.description) {
-            imgOrText.classList.add('nothing');
-        } else if (recipe.description) {
+        if (recipe.description && !recipe.image) {
             imgOrText.textContent = recipe.description;
             imgOrText.classList.add('img-or-text-without-img');
-        } else if (recipe.image && !recipe.description){
+        } else if (recipe.image) {
             imgOrText.style.backgroundImage = `url('${recipe.image}')`;
+        } else {
+            imgOrText.classList.add('nothing');
         }
 
         timeStamp.textContent = recipe.created_at;
