@@ -13,6 +13,9 @@ export const renderHeader = async() => {
         loggedInButton.classList.add('visibility');
         loggedOutButtons.classList.remove('visibility');
     }
+    const userProfile = await getUserProfile(user.id);
+    const userName = document.querySelector('.user-name');
+    userName.textContent = userProfile.username;
 };
 
 export async function renderRecipes() {

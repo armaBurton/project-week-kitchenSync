@@ -4,8 +4,6 @@ import {
     fetchSingleRecipe,
     getUser,
     logout,
-    updateVote,
-    getUserVote
 } from '../script/fetch-utils.js';
 import {
     renderRecipeDetails,
