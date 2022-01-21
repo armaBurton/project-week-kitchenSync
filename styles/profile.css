@@ -9,6 +9,7 @@
   border: 1px solid var(--dark-red);
   border-radius: 5px;
   background-color: var(--light-blue);
+  cursor: pointer;
 }
 
 .dev-image {

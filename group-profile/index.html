@@ -16,14 +16,13 @@
 <body>
     <header>
         <div class="icon-logo">
-            <a class="go-home" href="./">
+            <a class="go-home" href="../">
                 <img src="./assets/faucet.png" alt="" id="logo">
                 <p class="logo-type">kitchen<span class="sync">Sync</span></p>
             </a>
         </div>
         <div class="user-div">
-                <p id="add-recipe">Add Recipe:</p>
-                <p class="add-recipe" title="add recipe" id="create-recipe" style="text-align: right;">➕</p>
+                
 
             <div class="login-status-div">
                 <div class="login-div">
@@ -31,7 +30,7 @@
                     <button id="sign-up-button">sign-up</button>
                 </div>
                 <div class="logged-in-div visibility">
-                    <img class="profile-image" src="./assets/nick.png" alt="">
+                    <img class="profile-image" src="../assets/nick.png" alt="">
                     <div class="name-status">
                         <p class="user-name">Saint Nick</p>
                         <button id="logout-button">Log Out</button>
@@ -43,27 +42,65 @@
     <main>
         <h1>Meet the Team</h1>
         <div id="dev-div">
-            <section class="dev">
+            <section class="dev" id="alex">
                 <h3 class="dev-name">Alex Blair</h3>
                 <img class="dev-image" src="../assets/alex-profile-pic.png" alt="">
                 <p class="dev-bio">Alex Blair is a software developer in Portland, OR.  He has over 2 decades of customer facing experience in the food and beverage industry in Portland. In 2021, he decided to part ways from the restaurant world and pursue a career in software development at Alchemy Code Labs. His favorite food is pizza</p>
             </section>
-            <section class="dev">
+            <section class="dev" id="arma">
                 <h3 class="dev-name">Arma Burton</h3>
                 <img class="dev-image" src="../assets/arma-profile-pic.jpg" alt="">
                 <p class="dev-bio">Arma Burton is a software developer in Portland, OR. He is a former constructioneer and graphic-designer pursuing a more rewarding career with upward mobility. He has two legs from his hips to the ground and when he moves them he walks around. His favorite thing to make is Chocolate Babka</p>
             </section>
-            <section class="dev">
+            <section class="dev" id="jack">
                 <h3 class="dev-name">Cadillac Jack</h3>
                 <img class="dev-image" src="../assets/jack-profile-pic.jpg" alt="">
                 <p class="dev-bio">Cadillac Jack is a software developer in Portland, OR. He aspires to create a body of work that benefits communities and supports education. He began learning software development in 2021 after being told his goals were too big by one developer after another. His favorite food is biscuits and gravy</p>
             </section>
-            <section class="dev">
+            <section class="dev" id="philippe">
                 <h3 class="dev-name">Philippe Ngom</h3>
                 <img class="dev-image" src="../assets/philippe-profile-pic.png" alt="">
                 <p class="dev-bio">Philippe Ngom is a software developer in Seattle, WA.  He has a decade of military experience as an industrial maintainer. He enjoys collaborating and building useful applications. His favorite food is any Indian Cuisine.</p>
             </section>
         </div>
+        <section class="login visibility" id="login">
+            <div class="login-holder">
+                <div class="login-header">
+                    <p class="login-header-text">Sign In</p>
+                    <img src="../assets/cutlery-light-red.png" alt="" class="close-popup">
+                </div>
+                <div class="login-form">
+                    <form id="sign-in">
+                        <h3 class="sign-up-in">Sign In</h3>
+                        <label class="email">Email </label><input type="email" name="email" id="sign-in-email"/>
+                        <label class="password">Password </label><input type="password" name="password" id="sign-in-password"/>
+                        <div class="submit-div">
+                            <button class="submit">Submit</button>
+                            <p class="new-user">New User? Click <span class="new-user-span">here</span>.</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+        <section class="signup visibility" id="signup">
+            <div class="signup-holder">
+                <div class="signup-header">
+                    <p class="signup-header-text">Sign Up</p>
+                    <img src="../assets/cutlery-light-red.png" alt="" class="close-popup">
+                </div>
+                <div class="signup-form">
+                    <form id="sign-up">
+                        <h3 class="sign-up-in">Sign Up</h3>
+                        <label class="text">User Name</label><input type="text" name="user-name" id="user-name-input"/>
+                        <label class="email">Email </label><input type="email" name="email" id="sign-up-email"/>
+                        <label class="password">Password </label><input type="password" name="password" id="sign-up-password"/>
+                        <div class="submit-div">
+                            <button class="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- <script type="module" src="../script/script.js"></script> -->
