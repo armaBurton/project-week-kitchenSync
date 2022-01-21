@@ -68,7 +68,6 @@ newIngredientRowButton.addEventListener('click', () => {
 
         const quanInput = document.createElement('input');
         quanInput.setAttribute('type', 'text');
-        quanInput.setAttribute('value', '1');
         quanInput.setAttribute('name', `quantity-${i + 1}`);
         quanInput.setAttribute('placeholder', 'quantity');
 
