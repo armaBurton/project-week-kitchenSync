@@ -12,14 +12,14 @@ export const getUser = () => {
     return user;
 };
 
-export const getUserProfile = async() => {
-    const user = getUser();
+export const getUserProfile = async(id) => {
+    // console.log(id);
     const response = await client
         .from('profile')
         .select()
-        .match({ user_id: user.id })
+        .match({ user_id: id })
         .single();
-
+    console.log(response);
     return checkError(response);
 };
 
