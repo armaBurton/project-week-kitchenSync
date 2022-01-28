@@ -29,23 +29,24 @@ const counter = document.querySelector('.counter');
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
+function makeIncrementHandler(shouldIncrement) {
+    async() => {
+        const recipe = await fetchSingleRecipe(id);
 
-upArrow.addEventListener('click', async() => {
-    const recipe = await fetchSingleRecipe(id);
+        if (shouldIncrement) {
+            await incrementRecipeRating(recipe.id);
+        } else {
+            await decrementRecipeRating(recipe.id);  
+        }
+        counter.textContent = recipe.recipe_rating[0].rating;
+        await renderRecipeDetails();
 
-    await incrementRecipeRating(recipe.id);
-    counter.textContent = recipe.recipe_rating[0].rating;
-    await renderRecipeDetails();
-    console.log(recipe.recipe_rating[0].rating);
+    };
+}
 
-});
+upArrow.addEventListener('click', makeIncrementHandler(true));
 
-downArrow.addEventListener('click', async() => {
-    const recipe = await fetchSingleRecipe(id);
-    await decrementRecipeRating(recipe.id);
-    counter.textContent = recipe.recipe_rating[0].rating;
-    await renderRecipeDetails();
-});
+downArrow.addEventListener('click', makeIncrementHandler());
 
 createRecipeButton.addEventListener('click', async() => {
     const user = await getUser();

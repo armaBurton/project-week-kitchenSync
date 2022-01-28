@@ -12,6 +12,8 @@ export const getUser = () => {
     return user;
 };
 
+// seems like this file is getting to the point where it might be nice to have a few files, maybe one for each table?
+
 export const getUserProfile = async(id) => {
     // console.log(id);
     const response = await client

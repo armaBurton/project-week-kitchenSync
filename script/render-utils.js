@@ -107,6 +107,7 @@ export async function renderMyRecipes() {
     postCardsContainer.textContent = '';
 
     for (let recipe of recipes) {
+        // so it looks like this chunk of code (111-183) is repeated a few times throughout this file with small differences. It would be a good idea to isolate those small differences and make a renderRecipe function that addresses those differences as parameters to save, I would guess, about ~150 lines of code in this file, making it a 120 line file instead of 270 lines
         const postCardSection = document.createElement('section');
         postCardSection.classList.add('post-card');
         const sidebarDiv = document.createElement('div');
@@ -184,7 +185,6 @@ export async function renderMyRecipes() {
 }
 
 export async function renderRecipeDetails() {
-    const user = await getUserProfile();
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id');
     const recipe = await fetchSingleRecipe(id);

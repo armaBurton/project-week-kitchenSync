@@ -7,6 +7,7 @@ import {
 } from './fetch-utils.js';
 import { renderHeader, renderMyRecipes, renderRecipes } from './render-utils.js';
 
+// script.js as a filename is pretty vague--I'd like to see a more specific name
 
 const signUpButton = document.querySelector('#sign-up-button');
 const signInButton = document.querySelector('#sign-in-button');
@@ -23,7 +24,8 @@ const signUpForm = document.getElementById('sign-up');
 const signUpEmail = document.getElementById('sign-up-email');
 const signUpPassword = document.getElementById('sign-up-password');
 
-const xOutButton = document.querySelectorAll('.close-popup');
+// plural for arrays
+const xOutButtons = document.querySelectorAll('.close-popup');
 const switchModalButton = document.querySelector('.new-user-span');
 
 const loggedOutButtons = document.querySelector('.login-div');
@@ -62,7 +64,7 @@ signInButton.addEventListener('click', () => {
 
 });
 
-for (let button of xOutButton) {
+for (let button of xOutButtons) {
     button.addEventListener('click', () => {
         signInDisplay.classList.add('visibility');
         signUpDisplay.classList.add('visibility');
