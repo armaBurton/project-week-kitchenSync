@@ -76,19 +76,22 @@ for (let button of xOutButton) {
     });
 }
 
+function visitGithub(name) {
+    location.replace(`https://github.com/${name}`);
+}
 
 alex.addEventListener('click', () => {
-    location.replace('https://github.com/alex-i-blair');
+    visitGithub('alex-i-blair');
 });
 
 arma.addEventListener('click', () => {
-    location.replace('https://github.com/armaBurton');
+    visitGithub('armaBurton');
 });
 
 philippe.addEventListener('click', () => {
-    location.replace('https://github.com/philngom');
+    visitGithub('philngom');
 });
 
 jack.addEventListener('click', () => {
-    location.replace('https://github.com/CadillacJack42');
+    visitGithub('CadillacJack42');
 });

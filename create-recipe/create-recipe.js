@@ -24,22 +24,28 @@ recipeForm.addEventListener('submit', async(e) => {
 
     const dishName = form.get('dish-name');
     const description = form.get('description');
-    const ingredientsArr = [];
-    for (let i = 0; i < ingredientsInputContainer.children.length; i++) {
-        const ingredientObj = {
+    // const ingredientsArr = [];
+    // for (let i = 0; i < ingredientsInputContainer.children.length; i++) {
+    //     // very cool way to get an unpredictable number of items from a from. Seems like one of those famously rare use-case for a this kind of for-loop
+    //     const ingredientObj = {
+    //         quantity: form.get(`quantity-${i}`),
+    //         name: form.get(`name-${i}`),
+    //         prep: form.get(`prep-${i}`)
+    //     };
+    //     ingredientsArr.push(ingredientObj);
+    // }
+
+    // on second thought, would a map work? I think it hinges on whether we can turn `children` into a real array using Array.from
+    const ingredientsArr = Array.from(ingredientsInputContainer.children)
+        .map((item, i) => ({
             quantity: form.get(`quantity-${i}`),
             name: form.get(`name-${i}`),
             prep: form.get(`prep-${i}`)
-        };
-        ingredientsArr.push(ingredientObj);
-    }
+        }));
 
-    const directionsArr = [];
-    for (let i = 0; i < inputDirectionRowContainer.children.length; i++) {
-        const direction = form.get(`direction-name-${i}`);
-        directionsArr.push(direction);
+    const directionsArr = Array.from(inputDirectionRowContainer.children)
+        .map((item, i) => form.get(`direction-name-${i}`));
 
-    }
     const dishImg = form.get('dish-image');
     const user = await getUser();
     const recipe = {
